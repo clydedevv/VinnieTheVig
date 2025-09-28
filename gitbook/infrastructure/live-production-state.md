@@ -214,7 +214,7 @@ tail -f logs/twitter_bot.log
 
 ### Live Request Processing
 ```
-1. User: "@aigginsights Will Bitcoin hit 200k?"
+1. User: "@VigVinnie Will Bitcoin hit 200k?"
    └─ Tweet ID: 1234567890
 
 2. Bot polls mentions (30s interval)

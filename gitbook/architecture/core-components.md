@@ -7,7 +7,7 @@ The AIGG system consists of three main services and supporting components that w
 The front-facing interface that monitors Twitter mentions and orchestrates responses.
 
 ### Key Features
-- Mention Monitoring: Polls for @aigginsights mentions every 30 seconds
+- Mention Monitoring: Polls for @VigVinnie mentions every 30 seconds
 - Response Generation: Posts threaded responses with analysis
 - Access Control: 4-tier system (admin/vip/whitelist/blocked)
 - State Management: Tracks processed tweets to prevent duplicates

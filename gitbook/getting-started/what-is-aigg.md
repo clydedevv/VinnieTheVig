@@ -1,6 +1,6 @@
 # What is AIGG?
 
-AIGG is a Twitter-native companion for Polymarket that transforms market discovery from a research rabbit hole into a 30-second decision. Mention @aigginsights with any market question and receive an actionable trading recommendation with the exact Polymarket link.
+AIGG is a Twitter-native companion for Polymarket that transforms market discovery from a research rabbit hole into a 30-second decision. Mention @VigVinnie with any market question and receive an actionable trading recommendation with the exact Polymarket link.
 
 ## The Problem
 
@@ -53,7 +53,7 @@ Responses respect Twitter's character limits while maintaining completeness.
 The entire flow from question to answer takes 30-90 seconds:
 
 ### Step 1: Query Processing
-You tweet: "@aigginsights Will Bitcoin reach 200k?"
+You tweet: "@VigVinnie Will Bitcoin reach 200k?"
 - Parse natural language
 - Extract entities (Bitcoin, 200k)
 - Normalize for search

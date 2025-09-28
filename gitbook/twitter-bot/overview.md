@@ -1,12 +1,12 @@
 # Twitter Bot Overview
 
-The AIGG Twitter bot (@aigginsights) is the primary user interface for market analysis, providing instant AI-powered trading recommendations through simple tweet interactions.
+The AIGG Twitter bot (@VigVinnie) is the primary user interface for market analysis, providing instant AI-powered trading recommendations through simple tweet interactions.
 
 ## How It Works
 
 ### User Interaction Flow
 
-1. **User tweets** a market question mentioning @aigginsights
+1. **User tweets** a market question mentioning @VigVinnie
 2. **Bot detects** the mention within 30 seconds
 3. **Analysis pipeline** processes the query
 4. **Bot responds** with a 2-tweet thread:
@@ -71,6 +71,7 @@ stateDiagram-v2
     Tweet2 --> [*]: Complete
 ```
 
+
 ## Bot Architecture
 
 ### Core Components
@@ -121,7 +122,7 @@ def get_new_mentions(self, since_id=None):
 
 The bot extracts and cleans user queries:
 
-1. **Remove mentions**: Strip @aigginsights from text
+1. **Remove mentions**: Strip @VigVinnie from text
 2. **Clean text**: Remove extra whitespace, URLs
 3. **Extract question**: Identify the core market query
 4. **Validate**: Ensure query is processable
@@ -309,7 +310,7 @@ TWITTER_ACCESS_TOKEN_SECRET=your_token_secret
 TWITTER_BEARER_TOKEN=your_bearer_token
 
 # Bot Configuration
-TWITTER_USERNAME=aigginsights
+TWITTER_USERNAME=VigVinnie
 TWITTER_CHECK_INTERVAL=30  # seconds
 TWITTER_DRY_RUN=false
 TWITTER_DISABLE_WHITELIST=false

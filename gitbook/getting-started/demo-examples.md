@@ -8,7 +8,7 @@
 
 ### Cryptocurrency Markets
 
-**Query**: `@aigginsights Will Bitcoin reach 150k?`
+**Query**: `@VigVinnie Will Bitcoin reach 150k?`
 
 **Response**:
 ```
@@ -29,7 +29,7 @@ https://polymarket.com/event/will-bitcoin-reach-150000-in-august-2025
 
 ### Political Markets
 
-**Query**: `@aigginsights Trump 2028?`
+**Query**: `@VigVinnie Trump 2028?`
 
 **Response**:
 ```
@@ -46,7 +46,7 @@ https://polymarket.com/event/will-donald-trump-win-2028-election
 
 ### Economic Markets
 
-**Query**: `@aigginsights will the fed cut rates soon?`
+**Query**: `@VigVinnie will the fed cut rates soon?`
 
 **Response**:
 ```
@@ -168,7 +168,7 @@ curl "http://localhost:8001/markets/search?q=bitcoin&limit=5"
 
 <!-- Add actual tweet IDs here -->
 <blockquote class="twitter-tweet">
-  <a href="https://twitter.com/aigginsights/status/ACTUAL_TWEET_ID"></a>
+  <a href="https://twitter.com/VigVinnie/status/ACTUAL_TWEET_ID"></a>
 </blockquote>
 
 <script async src="https://platform.twitter.com/widgets.js"></script>

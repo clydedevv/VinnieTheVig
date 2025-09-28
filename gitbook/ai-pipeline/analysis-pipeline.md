@@ -17,7 +17,7 @@ Extracts the market query from Twitter mentions:
 
 ```python
 # Example input
-"@aigginsights Will Bitcoin hit 200k by end of year?"
+"@VigVinnie Will Bitcoin hit 200k by end of year?"
 
 # Extracted query
 "Bitcoin 200k end of year"

@@ -121,7 +121,7 @@ TWITTER_ACCESS_TOKEN=your_access_token
 TWITTER_ACCESS_TOKEN_SECRET=your_access_token_secret
 
 # Optional settings
-TWITTER_USERNAME=aigginsights
+TWITTER_USERNAME=VigVinnie
 TWITTER_CHECK_INTERVAL=30  # seconds
 ```
 
@@ -235,7 +235,7 @@ TWITTER_API_SECRET=...
 TWITTER_BEARER_TOKEN=...
 TWITTER_ACCESS_TOKEN=...
 TWITTER_ACCESS_TOKEN_SECRET=...
-TWITTER_USERNAME=aigginsights
+TWITTER_USERNAME=VigVinnie
 TWITTER_CHECK_INTERVAL=30
 
 # ============================================

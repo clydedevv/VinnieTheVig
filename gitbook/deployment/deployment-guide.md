@@ -20,7 +20,7 @@
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/zeroth-tech/aigg-insights.git
+git clone https://github.com/clydedevv/VinnieTheVig.git
 cd aigg-insights
 ```
 

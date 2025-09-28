@@ -13,7 +13,7 @@ Before starting, ensure you have:
 ## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/zeroth-tech/aigg-insights.git
+git clone https://github.com/clydedevv/VinnieTheVig.git
 cd aigg-insights
 ```
 

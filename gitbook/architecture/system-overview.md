@@ -19,7 +19,7 @@ The AIGG system runs as three independent microservices communicating via HTTP A
 ## Core Components
 
 ### 1. Twitter Bot Service
-- Purpose: Monitor and respond to @aigginsights mentions
+- Purpose: Monitor and respond to @VigVinnie mentions
 - Technology: Python Twitter API v2 client
 - Polling Interval: 30 seconds (X Premium rate limits)
 - Access Control: 4-tier system (admin/vip/whitelist/blocked)
@@ -56,7 +56,7 @@ The AIGG system runs as three independent microservices communicating via HTTP A
 
 ### Request Processing
 
-1. User tweets mention to @aigginsights
+1. User tweets mention to @VigVinnie
 2. Bot polls Twitter mentions every 30 seconds
 3. Bot extracts query and posts to Wrapper API (port 8003)
 4. Wrapper searches markets via Market API (port 8001)

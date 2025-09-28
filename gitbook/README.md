@@ -16,7 +16,7 @@ Most people either can't find the right market quickly or don't have the time to
 
 ## The Solution
 
-AIGG is a Twitter-native companion for Polymarket. Mention @aigginsights with a question and it does the heavy lifting: it identifies the correct market, adds current context when needed, and replies with a short, opinionated take and a confidence number; plus the official link that opens the market.
+AIGG is a Twitter-native companion for Polymarket. Mention @VigVinnie with a question and it does the heavy lifting: it identifies the correct market, adds current context when needed, and replies with a short, opinionated take and a confidence number; plus the official link that opens the market.
 
 - If you have domain expertise, AIGG accelerates you
 - If you don't, it gives you a usable starting point instead of sending you down a research rabbit hole
@@ -26,7 +26,7 @@ AIGG is a Twitter-native companion for Polymarket. Mention @aigginsights with a 
 ### Bitcoin Market Query
 ```
 @user: "Will Bitcoin reach 200k?"
-@aigginsights: "Word is Bitcoin's struggling below $110K after brutal selloffs.
+@VigVinnie: "Word is Bitcoin's struggling below $110K after brutal selloffs.
 Smart money's laying action on NO with Fed tightening. (85% confidence)
 
 BUY NO
@@ -37,7 +37,7 @@ https://polymarket.com/event/bitcoin-200k-2025"
 ### Fed Rates Query
 ```
 @user: "Fed cutting rates?"
-@aigginsights: "Word is the Fed already dropped rates in July and Powell's
+@VigVinnie: "Word is the Fed already dropped rates in July and Powell's
 signaling more cuts. Smart money's leaning hard on YES. (90% confidence)
 
 BUY YES
@@ -62,7 +62,7 @@ Under the hood, we use an LLM-guided pipeline and DSPy-style prompting to enforc
 
 ## How It Works
 
-You mention @aigginsights with a question: "BTC at 200k in 2025?" or "Ukraine-Russia ceasefire before July?"
+You mention @VigVinnie with a question: "BTC at 200k in 2025?" or "Ukraine-Russia ceasefire before July?"
 
 1. **Parse & Normalize**: AiGG parses the intent, normalizes entities and dates, and queries the active index
 2. **Match & Verify**: The matcher returns high-confidence candidates and verifies the official slug to guarantee a correct link
@@ -89,7 +89,7 @@ End-to-end, the flow typically completes in 30-90 seconds.
 
 ```bash
 # Clone repository
-git clone https://github.com/zeroth-tech/aigg-insights.git
+git clone https://github.com/clydedevv/VinnieTheVig.git
 cd aigg-insights
 
 # Install dependencies
@@ -142,8 +142,8 @@ Pair AIGG with emerging aggregators and market-making vaults, and you get a prac
 
 ## Resources
 
-- GitHub: [zeroth-tech/aigg-insights](https://github.com/zeroth-tech/aigg-insights)
-- Twitter: [@aigginsights](https://twitter.com/aigginsights)
+- GitHub: [clydedevv/VinnieTheVig](https://github.com/clydedevv/VinnieTheVig)
+- Twitter: [@VigVinnie](https://twitter.com/VigVinnie)
 - Demo Video: [Loom](https://www.loom.com/share/YOUR_LOOM_VIDEO_ID_HERE)
 
 Built with Polygon grant support.

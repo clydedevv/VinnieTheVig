@@ -1,0 +1,36 @@
+__pycache__/
+.env
+*.pyc
+
+.DS_Store
+
+.venv/
+venv/
+
+output/
+
+.sh
+
+.examples/
+
+# Logs
+logs/
+*.log
+
+# Test outputs
+test_results_*.json
+session-dump*.md
+# Environment files
+api/.env
+
+# Output directories
+api/output_logs/
+
+# IDE files
+.vscode/
+.idea/
+
+# Claude AI files
+.claude/
+
+.DS_Store

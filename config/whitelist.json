@@ -1,0 +1,42 @@
+{
+  "123456789": {
+    "user_id": "123456789",
+    "username": "test_user",
+    "access_level": "admin",
+    "added_date": "2025-06-01T22:36:44.558589",
+    "added_by": "admin",
+    "notes": "Test admin user",
+    "request_count": 0,
+    "last_request": null
+  },
+  "195487174": {
+    "user_id": "195487174",
+    "username": "clydedevv",
+    "access_level": "admin",
+    "added_date": "2025-06-01T22:51:54.960107",
+    "added_by": "admin",
+    "notes": "Bot administrator and owner",
+    "request_count": 0,
+    "last_request": null
+  },
+  "2163943230": {
+    "user_id": "2163943230",
+    "username": "AnkMister",
+    "access_level": "vip",
+    "added_date": "2025-06-01T23:48:00.000000",
+    "added_by": "admin",
+    "notes": "VIP test user for Iran nuclear deal market testing",
+    "request_count": 0,
+    "last_request": null
+  },
+  "1420819293894287364": {
+    "user_id": "1420819293894287364",
+    "username": "0xTraiano",
+    "access_level": "vip",
+    "added_date": "2025-06-01T23:48:00.000000",
+    "added_by": "admin",
+    "notes": "VIP test user for Iran nuclear deal market testing",
+    "request_count": 0,
+    "last_request": null
+  }
+}

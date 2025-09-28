@@ -1,0 +1,20 @@
+[Unit]
+Description=AIGG Twitter Wrapper API
+After=network.target postgresql.service
+Wants=postgresql.service
+
+[Service]
+Type=simple
+User=cosmos
+Group=cosmos
+WorkingDirectory=/home/cosmos/aigg-insights
+Environment=PATH=/home/cosmos/aigg-insights/venv/bin
+ExecStart=/home/cosmos/aigg-insights/venv/bin/python3 src/api_wrapper/twitter_wrapper.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=aigg-wrapper
+
+[Install]
+WantedBy=multi-user.target 

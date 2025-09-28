@@ -1,0 +1,20 @@
+[Unit]
+Description=AIGG Twitter Bot
+After=network.target aigg-wrapper.service
+Wants=aigg-wrapper.service
+
+[Service]
+Type=simple
+User=cosmos
+Group=cosmos
+WorkingDirectory=/home/cosmos/aigg-insights
+Environment=PATH=/home/cosmos/aigg-insights/venv/bin
+ExecStart=/home/cosmos/aigg-insights/venv/bin/python3 main.py twitter-bot --interval 60 --disable-whitelist
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=aigg-twitter-bot
+
+[Install]
+WantedBy=multi-user.target 

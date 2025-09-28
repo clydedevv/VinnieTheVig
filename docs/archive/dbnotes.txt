@@ -1,0 +1,311 @@
+AIGG INSIGHTS DATABASE & SYSTEM SETUP GUIDE
+=========================================
+
+CURRENT DATABASE SETUP
+--------------------
+Database Name: aigg_dev
+Host: localhost
+Current Tables:
+
+\d polymarket_odds
+- market_id (text, primary key)
+- question (text)
+- description (text)
+- volume_24h (numeric)
+- active (boolean)
+- closed (boolean)
+- end_date (timestamp)
+- outcomes (jsonb)
+- outcome_prices (jsonb)
+- last_updated (timestamp)
+
+SYSTEM SERVICE STATUS
+-------------------
+Service Name: aigg-api
+Location: /etc/systemd/system/aigg-api.service
+Status: Active
+Logs: /var/log/aigg-api.log
+
+USEFUL COMMANDS
+-------------
+
+1. Database Access:
+psql -U cosmos -d aigg_dev
+
+2. Common Database Queries:
+# Check active markets
+SELECT market_id, question, volume_24h FROM polymarket_odds WHERE active = true ORDER BY volume_24h DESC LIMIT 5;
+
+# Check table structure
+\d polymarket_odds
+
+# Check recent updates
+SELECT market_id, last_updated FROM polymarket_odds ORDER BY last_updated DESC LIMIT 5;
+
+3. Service Management:
+# Check service status
+sudo systemctl status aigg-api
+
+# View logs
+sudo journalctl -u aigg-api -f
+tail -f /var/log/aigg-api.log
+
+4. Database Backup:
+pg_dump -U cosmos aigg_dev > backup.sql
+
+CURRENT CHALLENGES
+----------------
+1. Data Freshness:
+- Markets need regular updates
+- Some closed markets still show as active
+- End dates need timezone handling
+
+2. Performance Issues:
+- Large result sets can be slow
+- Need index optimization
+- Connection pooling might help
+
+3. Data Quality:
+- Some markets missing descriptions
+- Inconsistent category labeling
+- Volume data sometimes delayed
+
+INTEGRATION POINTS
+----------------
+1. Database Connection:
+from db.connection import get_db_connection
+
+conn = get_db_connection()
+cur = conn.cursor()
+
+2. Environment Setup:
+Required in .env:
+DATABASE_URL=postgresql://cosmos:password@localhost:5432/aigg_dev
+API_KEY=your_key_here
+
+3. Table Creation for Research:
+CREATE TABLE market_research (
+    id SERIAL PRIMARY KEY,
+    market_id TEXT REFERENCES polymarket_odds(market_id),
+    research_data JSONB,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+DEBUGGING TIPS
+------------
+1. Database Issues:
+# Check connections
+SELECT * FROM pg_stat_activity WHERE datname = 'aigg_dev';
+
+# Kill hanging connections
+SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = 'aigg_dev';
+
+2. Service Issues:
+# Check logs for errors
+grep ERROR /var/log/aigg-api.log
+
+# Restart service
+sudo systemctl restart aigg-api
+
+MONITORING
+---------
+Current Metrics:
+- API response time
+- Database connection count
+- Query execution time
+- Service uptime
+
+EXAMPLE INTEGRATION CODE
+----------------------
+def store_research_results(market_id: str, research_data: dict):
+    try:
+        with get_db_connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute("""
+                    INSERT INTO market_research (market_id, research_data)
+                    VALUES (%s, %s)
+                    ON CONFLICT (market_id) 
+                    DO UPDATE SET research_data = %s
+                """, (market_id, json.dumps(research_data), json.dumps(research_data)))
+            conn.commit()
+    except Exception as e:
+        logger.error(f"Failed to store research: {str(e)}")
+        raise
+
+COMMON ISSUES & SOLUTIONS
+-----------------------
+1. Connection Timeouts:
+- Check max_connections in postgresql.conf
+- Implement connection pooling
+- Add retry logic
+
+2. Slow Queries:
+- Add indexes on frequently queried columns
+- Optimize JOIN operations
+- Consider materialized views
+
+3. Data Consistency:
+- Add constraints where needed
+- Implement transaction management
+- Add data validation
+
+REQUIRED PACKAGES
+---------------
+pip install:
+- psycopg2-binary
+- fastapi
+- uvicorn
+- python-dotenv
+- asyncpg (optional, for async operations)
+
+FILE LOCATIONS
+------------
+1. Database:
+- /etc/postgresql/14/main/postgresql.conf
+- /etc/postgresql/14/main/pg_hba.conf
+
+2. Application:
+- /home/cosmos/aigg-insights/
+- /var/log/aigg-api.log
+- /etc/systemd/system/aigg-api.service
+
+AIGG INSIGHTS DATABASE COMMANDS
+=============================
+
+CURRENT DATABASE STATUS
+---------------------
+# Connect to database
+psql -U cosmos -d aigg_dev
+# List all tables
+\dt
+# Show detailed table structure
+\d+ polymarket_odds
+
+CURRENT TABLE STRUCTURE
+---------------------
+# Check current polymarket_odds table
+\d polymarket_odds
+Expected output:
+                                        Table "public.polymarket_odds"
+     Column     |            Type             | Collation | Nullable |                Default
+----------------+-----------------------------+-----------+----------+----------------------------------------
+ market_id      | text                        |           | not null | 
+ question       | text                        |           |          | 
+ description    | text                        |           |          | 
+ volume_24h     | numeric                     |           |          | 
+ active         | boolean                     |           |          | 
+ end_date       | timestamp without time zone |           |          | 
+ outcomes       | jsonb                       |           |          | 
+ outcome_prices | jsonb                       |           |          | 
+ last_updated   | timestamp without time zone |           |          | default CURRENT_TIMESTAMP
+Indexes:
+    "polymarket_odds_pkey" PRIMARY KEY, btree (market_id)
+
+ADDING NEW TABLES
+---------------
+# Create research tables
+CREATE TABLE market_research (
+    id SERIAL PRIMARY KEY,
+    market_id TEXT REFERENCES polymarket_odds(market_id),
+    research_data JSONB,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+# Create research sources table
+CREATE TABLE research_sources (
+    id SERIAL PRIMARY KEY,
+    market_research_id INTEGER REFERENCES market_research(id),
+    url TEXT,
+    title TEXT,
+    content TEXT,
+    credibility_score FLOAT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+USEFUL QUERIES
+------------
+# Check table contents
+SELECT * FROM polymarket_odds LIMIT 5;
+# Check active markets
+SELECT market_id, question, volume_24h 
+FROM polymarket_odds 
+WHERE active = true 
+ORDER BY volume_24h DESC 
+LIMIT 5;
+# Check table size
+SELECT pg_size_pretty(pg_total_relation_size('polymarket_odds'));
+
+BACKUP COMMANDS
+-------------
+# Create backup directory if it doesn't exist
+sudo mkdir -p /var/backups/aigg
+sudo chown cosmos:cosmos /var/backups/aigg
+
+# Manual backup
+pg_dump -U cosmos aigg_dev > /var/backups/aigg/backup_$(date +%Y%m%d).sql
+
+# Restore from backup
+psql -U cosmos -d aigg_dev < /var/backups/aigg/backup_20240214.sql
+
+ADDING INDEXES
+------------
+# Add index for faster queries
+CREATE INDEX idx_market_end_date ON polymarket_odds(end_date);
+CREATE INDEX idx_market_volume ON polymarket_odds(volume_24h);
+
+PERMISSIONS
+----------
+# Grant necessary permissions
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO cosmos;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO cosmos;
+
+MONITORING QUERIES
+---------------
+# Check table statistics
+SELECT schemaname, relname, n_live_tup 
+FROM pg_stat_user_tables 
+WHERE schemaname = 'public';
+
+# Check index usage
+SELECT schemaname, relname, indexrelname, idx_scan 
+FROM pg_stat_user_indexes 
+WHERE schemaname = 'public';
+
+MAINTENANCE
+---------
+# Vacuum analyze for better performance
+VACUUM ANALYZE polymarket_odds;
+
+# Update table statistics
+ANALYZE polymarket_odds;
+
+ERROR CHECKING
+------------
+# Check for invalid entries
+SELECT market_id, question 
+FROM polymarket_odds 
+WHERE question IS NULL OR description IS NULL;
+
+# Check for duplicate entries
+SELECT market_id, COUNT(*) 
+FROM polymarket_odds 
+GROUP BY market_id 
+HAVING COUNT(*) > 1;
+
+ADDING NEW COLUMNS
+----------------
+# Example: Add new column
+ALTER TABLE polymarket_odds ADD COLUMN category TEXT;
+ALTER TABLE polymarket_odds ADD COLUMN tags TEXT[];
+
+# Update existing records
+UPDATE polymarket_odds SET category = 'unknown' WHERE category IS NULL;
+
+USEFUL NOTES
+-----------
+1. Always backup before schema changes
+2. Test new queries on small datasets first
+3. Use transactions for multiple changes
+4. Monitor query performance
+5. Keep track of index usage
+6. Regular VACUUM ANALYZE helps performance
+7. Check logs for errors: /var/log/postgresql/postgresql-14-main.log

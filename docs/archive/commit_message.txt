@@ -1,0 +1,45 @@
+feat: Initial Database Setup & Polymarket Integration
+
+Added:
+- PostgreSQL schema for market data and research analysis
+- Script to fetch and store Polymarket data
+- Basic database connection handling
+
+Changes:
+1. Created initial schema (migrations/001_initial_schema.sql):
+   - Categories table
+   - Polymarket odds table
+   - Research tables (research, analysis, conclusions)
+   - User management tables
+   - Performance indexes
+
+2. Added database connection module (db/connection.py):
+   - Context manager for DB connections
+   - Real dictionary cursor support
+
+3. Added Polymarket data population script (scripts/populate_polymarket_data.py):
+   - Fetches latest markets from Polymarket API
+   - Maps API response to our schema
+   - Handles updates for existing markets
+
+4. Integration with existing services:
+   - Compatible with ResearchService
+   - Ready for Perplexity integration
+
+Next Steps:
+1. Add pgvector extension for embeddings
+2. Implement market categorization ML model
+3. Create orchestrator service to:
+   - Schedule regular market updates
+   - Trigger research collection
+   - Generate analysis
+4. Add monitoring and logging
+5. Implement user authentication
+6. Add API rate limiting
+
+Testing:
+- Verified data insertion
+- Confirmed schema compatibility
+- Tested API integration
+
+Related: #123 (replace with actual issue number)

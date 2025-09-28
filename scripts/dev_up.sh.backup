@@ -1,0 +1,243 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# 🚀 AIGG Development Environment Manager
+# ========================================
+# One command to orchestrate all AIGG services for local development
+#
+# USAGE:
+#   ./scripts/dev_up.sh           # Start all services (default)
+#   ./scripts/dev_up.sh up        # Start all services 
+#   ./scripts/dev_up.sh down      # Stop all services
+#   ./scripts/dev_up.sh restart   # Restart all services
+#   ./scripts/dev_up.sh status    # Check service health
+#   ./scripts/dev_up.sh logs      # Tail all logs
+#
+# SERVICES:
+#   - API Server (port 8001): Market search and analysis
+#   - Twitter Wrapper (port 8003): Twitter bot integration
+#   - Twitter Bot: Monitors mentions and responds
+#
+# CONFIGURATION (via environment variables):
+#   API_PORT=8001                 # API server port
+#   WRAPPER_PORT=8003             # Twitter wrapper port
+#   BOT_INTERVAL=60               # Bot check interval (seconds)
+#   DISABLE_WHITELIST=true        # Disable whitelist for testing
+
+# Auto-detect repo directory (works from anywhere)
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+REPO_DIR="$( cd "$SCRIPT_DIR/.." && pwd )"
+API_SESSION="aigg-api"
+WRAPPER_SESSION="twitter-wrapper"
+BOT_SESSION="aigg-bot"
+
+API_PORT="${API_PORT:-8001}"
+WRAPPER_PORT="${WRAPPER_PORT:-8003}"
+BOT_INTERVAL="${BOT_INTERVAL:-60}"
+DISABLE_WHITELIST_FLAG="${DISABLE_WHITELIST:-false}"
+
+ensure_prereqs() {
+  if ! command -v tmux >/dev/null 2>&1; then
+    echo "Error: tmux is required. Install it (e.g., sudo apt-get install tmux) and re-run." >&2
+    exit 1
+  fi
+}
+
+# Setup command that runs in each tmux session
+setup_env() {
+  echo "cd '$REPO_DIR' && mkdir -p logs && set -a; [ -f .env ] && source .env || true; set +a; if [ -f .venv/bin/activate ]; then source .venv/bin/activate; elif [ -f venv/bin/activate ]; then source venv/bin/activate; fi"
+}
+
+# Add color output for better readability
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+CYAN='\033[0;36m'
+BOLD='\033[1m'
+NC='\033[0m' # No Color
+
+start_api() {
+  if tmux has-session -t "$API_SESSION" 2>/dev/null; then
+    echo -e "${YELLOW}[skip]${NC} $API_SESSION already running"
+  else
+    echo -e "${GREEN}[start]${NC} $API_SESSION on :$API_PORT"
+    # Use bash -c to ensure proper execution
+    tmux new -s "$API_SESSION" -d bash -c "$(setup_env) && python3 main.py api-server --port $API_PORT --host 0.0.0.0"
+  fi
+}
+
+start_wrapper() {
+  if tmux has-session -t "$WRAPPER_SESSION" 2>/dev/null; then
+    echo -e "${YELLOW}[skip]${NC} $WRAPPER_SESSION already running"
+  else
+    echo -e "${GREEN}[start]${NC} $WRAPPER_SESSION on :$WRAPPER_PORT"
+    tmux new -s "$WRAPPER_SESSION" -d bash -c "$(setup_env) && python3 main.py wrapper-api --port $WRAPPER_PORT"
+  fi
+}
+
+start_bot() {
+  local bot_args="--interval ${BOT_INTERVAL}"
+  if [[ "${DISABLE_WHITELIST_FLAG}" == "true" ]]; then
+    bot_args="${bot_args} --disable-whitelist"
+  fi
+
+  if tmux has-session -t "$BOT_SESSION" 2>/dev/null; then
+    echo -e "${YELLOW}[skip]${NC} $BOT_SESSION already running"
+  else
+    echo -e "${GREEN}[start]${NC} $BOT_SESSION (interval ${BOT_INTERVAL}s${DISABLE_WHITELIST_FLAG:+, whitelist disabled})"
+    tmux new -s "$BOT_SESSION" -d bash -c "$(setup_env) && python3 main.py twitter-bot ${bot_args}"
+  fi
+}
+
+stop_all() {
+  for s in "$BOT_SESSION" "$WRAPPER_SESSION" "$API_SESSION"; do
+    if tmux has-session -t "$s" 2>/dev/null; then
+      echo -e "${RED}[stop]${NC} $s"
+      tmux kill-session -t "$s"
+    else
+      echo -e "${YELLOW}[skip]${NC} $s not running"
+    fi
+  done
+}
+
+status() {
+  printf "\n${YELLOW}=== AIGG Services Status ===${NC}\n\n"
+  
+  printf "${YELLOW}Sessions:${NC}\n"
+  tmux ls 2>/dev/null | sed 's/^/  /' || echo "  (no tmux sessions)"
+
+  printf "\n${YELLOW}Health checks:${NC}\n"
+  printf "  API (:${API_PORT}) -> "
+  if curl -sSf "http://localhost:${API_PORT}/health" >/dev/null 2>&1; then
+    echo -e "${GREEN}✓ OK${NC}"
+  else
+    echo -e "${RED}✗ FAIL${NC}"
+  fi
+  
+  printf "  Wrapper (:${WRAPPER_PORT}) -> "
+  if curl -sSf "http://localhost:${WRAPPER_PORT}/health" >/dev/null 2>&1; then
+    echo -e "${GREEN}✓ OK${NC}"
+  else
+    echo -e "${RED}✗ FAIL${NC}"
+  fi
+
+  printf "\n${YELLOW}Recent logs:${NC}\n"
+  for f in "${REPO_DIR}/logs/twitter_wrapper.log" "${REPO_DIR}/logs/aigg_twitter_bot.log"; do
+    if [ -f "$f" ]; then
+      echo "  $(basename $f) (last 3 lines):"
+      tail -n 3 "$f" 2>/dev/null | sed 's/^/    /' || true
+    fi
+  done
+}
+
+logs() {
+  # Tail all log files
+  echo -e "${YELLOW}=== Tailing AIGG Logs ===${NC}"
+  echo "Press Ctrl+C to exit"
+  echo ""
+  tail -f "${REPO_DIR}/logs/"*.log 2>/dev/null || {
+    echo -e "${RED}No log files found in ${REPO_DIR}/logs/${NC}"
+    echo "Services may not be running yet."
+  }
+}
+
+# Wait for service to be healthy
+wait_for_health() {
+  local service_name=$1
+  local port=$2
+  local max_attempts=30  # 30 seconds max
+  local attempt=0
+  
+  echo -e "  ${YELLOW}⏳${NC} Waiting for $service_name to be healthy..."
+  
+  while [ $attempt -lt $max_attempts ]; do
+    if curl -sSf "http://localhost:${port}/health" >/dev/null 2>&1; then
+      echo -e "  ${GREEN}✓${NC} $service_name is healthy!"
+      return 0
+    fi
+    sleep 1
+    attempt=$((attempt + 1))
+    # Show progress dots
+    if [ $((attempt % 5)) -eq 0 ]; then
+      echo -e "     Still waiting... ($attempt/$max_attempts)"
+    fi
+  done
+  
+  echo -e "  ${RED}✗${NC} $service_name failed to start (timeout)"
+  return 1
+}
+
+start_all() {
+  ensure_prereqs
+  
+  echo -e "\n${BOLD}${CYAN}🚀 Starting AIGG Services${NC}\n"
+  
+  # Start API first
+  start_api
+  if ! wait_for_health "API Server" "$API_PORT"; then
+    echo -e "${RED}Failed to start API. Check logs: tmux attach -t ${API_SESSION}${NC}"
+    return 1
+  fi
+  
+  # Start wrapper after API is ready
+  start_wrapper
+  if ! wait_for_health "Twitter Wrapper" "$WRAPPER_PORT"; then
+    echo -e "${RED}Failed to start Wrapper. Check logs: tmux attach -t ${WRAPPER_SESSION}${NC}"
+    return 1
+  fi
+  
+  # Start bot only after wrapper is ready
+  start_bot
+  sleep 2  # Give bot a moment to initialize
+  
+  # Verify bot started successfully
+  if ! tmux has-session -t "$BOT_SESSION" 2>/dev/null; then
+    echo -e "${RED}Bot failed to start${NC}"
+    return 1
+  fi
+  
+  # Check if bot connected to wrapper (by checking recent logs)
+  sleep 2
+  if tail -5 "${REPO_DIR}/logs/aigg_twitter_bot.log" 2>/dev/null | grep -q "Wrapper API not available"; then
+    echo -e "${YELLOW}⚠️  Bot had connection issues, restarting...${NC}"
+    tmux kill-session -t "$BOT_SESSION" 2>/dev/null
+    sleep 1
+    start_bot
+  fi
+  
+  echo -e "\n${GREEN}✅ All services started successfully!${NC}\n"
+  echo "📊 Monitor with: just dashboard"
+  echo "📝 Test with:    just analyze 'Will Bitcoin hit 150k?'"
+  echo "🛑 Stop with:    just down"
+}
+
+case "${1:-start}" in
+  start|up)
+    start_all
+    ;;
+  stop|down)
+    stop_all
+    ;;
+  restart)
+    stop_all || true
+    start_all
+    ;;
+  status|ps)
+    status
+    ;;
+  logs|tail)
+    logs
+    ;;
+  *)
+    echo "Usage: $0 {start|stop|restart|status|logs}" >&2
+    echo "  start/up     - Start all services"
+    echo "  stop/down    - Stop all services"  
+    echo "  restart      - Restart all services"
+    echo "  status/ps    - Show service status"
+    echo "  logs/tail    - Tail all log files"
+    exit 2
+    ;;
+esac
+
+

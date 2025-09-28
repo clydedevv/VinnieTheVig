@@ -2,13 +2,13 @@
 
 AI Twitter bot using DSPy framework and LLM-based market matching to analyze Polymarket prediction markets and provide intelligent trading recommendations via Twitter mentions.
 
-[![Twitter](https://img.shields.io/badge/Twitter-@aigginsights-blue)](https://twitter.com/aigginsights)
+[![Twitter](https://img.shields.io/badge/Twitter-@VigVinnie-blue)](https://twitter.com/VigVinnie)
 [![Framework](https://img.shields.io/badge/Framework-DSPy-orange)]()
 
 ## Live System Status
 
 ### Core Services
-- **Twitter Bot**: `@aigginsights` - Live on Twitter, monitoring mentions 24/7
+- **Twitter Bot**: `@VigVinnie` - Live on Twitter, monitoring mentions 24/7
 - **Market API**: Available with 51K+ markets using LLM-based matching
 - **Database**: PostgreSQL with 3,168 active markets (auto-updated hourly)
 - **AI Framework**: DSPy with Fireworks AI (Qwen 3.5 72B) for structured analysis

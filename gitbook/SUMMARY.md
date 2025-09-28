@@ -1,76 +1,85 @@
-# Summary
+# Table of contents
 
-## Getting Started
-
-* [Introduction](README.md)
-* [What is AIGG?](getting-started/what-is-aigg.md)
-* [Quick Start Guide](getting-started/quick-start.md)
-* [Demo Examples](getting-started/demo-examples.md)
-
-## Architecture
-
-* [System Overview](architecture/system-overview.md)
-* [Core Components](architecture/core-components.md)
-* [Database Design](architecture/database-design.md)
-
-## AI Pipeline
-
-* [DSPy Framework](ai-pipeline/dspy-framework.md)
-* [Analysis Pipeline](ai-pipeline/analysis-pipeline.md)
-* [Research Integration](ai-pipeline/research-integration.md)
-* [Response Formatting](ai-pipeline/response-formatting.md)
-
-## Infrastructure
-
-* [Live Production State](infrastructure/live-production-state.md)
-
-## Deployment
-
-* [Deployment Guide](deployment/deployment-guide.md)
-* [Requirements](setup/requirements.md)
-* [Environment Setup](setup/environment-setup.md)
-* [Database Configuration](setup/database-configuration.md)
-* [API Keys & Credentials](setup/api-keys.md)
-* [Running the System](setup/running-the-system.md)
-
-## Twitter Bot
-
-* [Bot Overview](twitter-bot/overview.md)
-* [Authentication](twitter-bot/authentication.md)
-* [Mention Processing](twitter-bot/mention-processing.md)
-* [Response Generation](twitter-bot/response-generation.md)
-* [Access Control](twitter-bot/access-control.md)
-
-## Market Matching
-
-* [LLM-Based Matching](market-matching/llm-matching.md)
-* [Category System](market-matching/category-system.md)
-* [Market Database](market-matching/market-database.md)
-* [Performance Optimization](market-matching/optimization.md)
-
-## APIs
-
-* [Market API](apis/market-api.md)
-* [Twitter Wrapper API](apis/twitter-wrapper.md)
-* [Health Endpoints](apis/health-endpoints.md)
-
-## Development
-
-* [Project Structure](development/project-structure.md)
-* [Testing Strategy](development/testing.md)
-* [CLI Commands](development/cli-commands.md)
-
-## Operations
-
-* [Monitoring & Logging](operations/monitoring.md)
-* [Rate Limiting](operations/rate-limiting.md)
-* [Database Maintenance](operations/database-maintenance.md)
-
-## Roadmap
-
-* [Product Roadmap](roadmap/product-roadmap.md)
-
-## Troubleshooting
-
-* [Common Issues](appendix/troubleshooting.md)
-* [FAQ](appendix/faq.md)
+* [AIGG - A Polymarket Companion](README.md)
+  * [Summary](SUMMARY.md)
+  * [ai-pipeline](gitbook/ai-pipeline/README.md)
+    * [AI Analysis Pipeline](ai-pipeline/analysis-pipeline.md)
+    * [DSPy Framework Integration](ai-pipeline/dspy-framework.md)
+  * [apis](gitbook/apis/README.md)
+    * [Market API](apis/market-api.md)
+  * [architecture](gitbook/architecture/README.md)
+    * [Core Components](architecture/core-components.md)
+    * [Database Design](architecture/database-design.md)
+    * [System Overview](architecture/system-overview.md)
+  * [deployment](gitbook/deployment/README.md)
+    * [Deployment Guide](deployment/deployment-guide.md)
+  * [getting-started](gitbook/getting-started/README.md)
+    * [Demo Examples](getting-started/demo-examples.md)
+    * [Quick Start Guide](getting-started/quick-start.md)
+    * [What is AIGG?](getting-started/what-is-aigg.md)
+  * [infrastructure](gitbook/infrastructure/README.md)
+    * [Live Production Infrastructure](infrastructure/live-production-state.md)
+  * [roadmap](gitbook/roadmap/README.md)
+    * [Product Roadmap](roadmap/product-roadmap.md)
+  * [setup](gitbook/setup/README.md)
+    * [API Keys & Credentials](setup/api-keys.md)
+    * [Database Configuration](setup/database-configuration.md)
+    * [Environment Setup](setup/environment-setup.md)
+    * [System Requirements](setup/requirements.md)
+    * [Running the System](setup/running-the-system.md)
+  * [twitter-bot](gitbook/twitter-bot/README.md)
+    * [Twitter Bot Overview](twitter-bot/overview.md)
+* [AIGG Insights - AI-Powered Twitter Bot for Prediction Markets](../README.md)
+* [CLAUDE.md](../CLAUDE.md)
+* [Clean Architecture Summary](../CLEAN_ARCHITECTURE.md)
+* [Final Repository Cleanup Summary](../FINAL_CLEANUP_SUMMARY.md)
+* [Working AIGG Twitter Bot Demos - The Winning Pattern](../WORKING_DEMO_EXAMPLES.md)
+* [AIGG Insights API Documentation](../api/README.md)
+* [docs](docs/README.md)
+  * [Repository Cleanup Plan](../docs/CLEANUP_REPO.MD)
+  * [Repository Cleanup Summary](../docs/CLEANUP_SUMMARY.md)
+  * [🚀 AIGG Insights Deployment Guide](../docs/DEPLOYMENT_GUIDE.md)
+  * [Documentation Accuracy Report](../docs/DOCUMENTATION_ACCURACY_REPORT.md)
+  * [Enhanced Perplexity Research Examples](../docs/ENHANCED_RESEARCH_EXAMPLES.md)
+  * [Markdown Files Reorganization Summary](../docs/MD_REORGANIZATION_SUMMARY.md)
+  * [Performance Optimization](../docs/PERFORMANCE_OPTIMIZATION.md)
+  * [🏗️ AIGG Insights - Project Structure (Updated)](../docs/PROJECT_STRUCTURE.md)
+  * [🐦 AIGG Twitter Bot - Live Demo Results](../docs/TWITTER_DEMOS.md)
+  * [V2 Matcher Integration](../docs/V2_MATCHER_INTEGRATION.md)
+  * [api](docs/api/README.md)
+    * [AIGG Twitter Integration - Complete System Summary](../docs/api/TWITTER_INTEGRATION_SUMMARY.md)
+  * [archive](docs/archive/README.md)
+    * [AIGG Repository Cleanup Plan](../docs/archive/CLEANUP_PLAN.md)
+    * [AIGG - AI-Powered Prediction Market Analysis 🎯](../docs/archive/README_NEW.md)
+  * [improvements](docs/improvements/README.md)
+    * [🎯 DSPy Integration SUCCESS - Structured Prompting Revolution](../docs/improvements/DSPY_INTEGRATION_SUCCESS.md)
+    * [AIGG Internal Testing & Improvement Plan](../docs/improvements/INTERNAL_IMPROVEMENT_PLAN.md)
+    * [LLM-Based Market Matching](../docs/improvements/LLM_MARKET_MATCHING.md)
+    * [🔧 Market Matching & URL Generation Fixes Report](../docs/improvements/MARKET_MATCHING_FIXES_REPORT.md)
+    * [AIGG Response Length Enhancements](../docs/improvements/RESPONSE_LENGTH_ENHANCEMENTS.md)
+    * [🤖 AIGG Twitter Bot - Quality Improvements](../docs/improvements/TWITTER_BOT_IMPROVEMENTS.md)
+    * [🚀 X Premium Twitter Bot Improvements](../docs/improvements/X_PREMIUM_IMPROVEMENTS.md)
+  * [legal](docs/legal/README.md)
+    * [Privacy Policy - AIGG Insights Bot](../docs/legal/PRIVACY.md)
+    * [Terms of Service - AIGG Insights Bot](../docs/legal/TERMS.md)
+  * [migration](docs/migration/README.md)
+    * [🚀 AIGG Infrastructure Migration Guide](../docs/migration/INFRASTRUCTURE_MIGRATION.md)
+    * [🚀 AIGG Infrastructure Migration Guide](../docs/migration/MIGRATION_GUIDE.md)
+    * [AIGG Insights Migration Guide](../docs/migration/MIGRATION_GUIDE_OLD.md)
+    * [AIGG Infrastructure Migration Guide](../docs/migration/MIGRATION_INSTRUCTIONS.md)
+    * [🚀 AIGG Infrastructure Migration Status](../docs/migration/MIGRATION_STATUS.md)
+    * [🚀 AIGG Insights - Production Migration Guide](../docs/migration/PRODUCTION_MIGRATION_GUIDE.md)
+  * [setup](docs/setup/README.md)
+    * [Twitter Account Setup for AIGG Bot](../docs/setup/TWITTER_ACCOUNT_SETUP.md)
+    * [AIGG Twitter Bot Deployment Checklist](../docs/setup/TWITTER_DEPLOYMENT_CHECKLIST.md)
+    * [AIGG Twitter Bot Setup Guide](../docs/setup/TWITTER_SETUP.md)
+  * [testing](docs/testing/README.md)
+    * [🚀 X PREMIUM API - TESTING PROTOCOL FOR ANKUR](../docs/testing/PREMIUM_API_TESTING_PROTOCOL.md)
+* [AIGG Scripts & Development Tools](../scripts/README.md)
+  * [dev](scripts/dev/README.md)
+    * [pages-files](scripts/dev/pages-files/README.md)
+      * [Claude Session Summary - 2025-08-13\_232628](../scripts/dev/pages-files/session-dump-2025-08-13_232628-compact.md)
+      * [Session History - 2025-08-13\_232628](../scripts/dev/pages-files/session-dump-2025-08-13_232628-full.md)
+* [src](src/README.md)
+  * [AIGG Flows](../src/flows/README.md)
+    * [Archived Flows](../src/flows/archive/README.md)

@@ -1,75 +1,106 @@
-# AIGG - A Polymarket Companion
+# Overview
 
-## Introduction
+AIGG powers intelligent prediction market analysis through **@VigVinnie**, a Brooklyn bookmaker character who brings technical analysis to life on Twitter.
 
-AIGG powers intelligent prediction market analysis. The system lets anyone ask a market question on Twitter and get a concise answer they can act on: a one-paragraph rationale, a clear BUY/SELL/HOLD with confidence, and the exact Polymarket link.
+<blockquote class="twitter-tweet">
+<a href="https://x.com/VigVinnie">Visit @VigVinnie on Twitter</a>
+</blockquote>
 
-## The Problem We're Tackling
+## What is VigVinnie?
 
-Prediction markets are having a moment. Crypto Twitter and mainstream outlets are paying attention, especially when volatility spikes. But attention and capital are scattered across thousands of tokens and feeds.
-
-- Discovery is noisy
-- Naming is inconsistent
-- Timing matters
-
-Most people either can't find the right market quickly or don't have the time to research it. Generic bots make this worse by producing vague text that doesn't help you trade.
-
-## Meet VigVinnie
-
-With AIGG as the backend, **@VigVinnie** is the character who brings it to life on Twitter. VigVinnie is an Italian-American Brooklyn bookmaker with a Pepe profile picture who talks like he's been taking bets his whole life.
-
-**Follow VigVinnie:** [@VigVinnie](https://x.com/VigVinnie)
+**@VigVinnie** combines AIGG's technical capabilities with an authentic Brooklyn bookmaker personality. Users mention @VigVinnie with market questions and get actionable trading insights in seconds.
 
 ### The Character
-- **Personality**: Brooklyn bookmaker with old-school betting parlor wisdom
-- **Voice**: Uses gambling terminology ("the line's wobbling", "smart money's drifting")  
-- **Background**: Italian-American who knows the streets and the books
-- **Style**: Direct, opinionated, and always ready with a take
+- **Personality**: Italian-American Brooklyn bookmaker with street-smart betting wisdom
+- **Voice**: Uses gambling terminology ("the line's wobbling", "smart money's drifting")
+- **Style**: Direct, opinionated analysis with confidence percentages
+- **Avatar**: Pepe profile picture that's become iconic in prediction markets
 
 ### How It Works
-Mention @VigVinnie with any market question and he does the heavy lifting: identifies the correct market, adds current context when needed, and replies with a short, opinionated take and confidence number, plus the official Polymarket link.
 
-- If you have domain expertise, VigVinnie accelerates you
-- If you don't, he gives you a usable starting point instead of sending you down a research rabbit hole
+1. **Ask**: Tweet any market question to @VigVinnie
+2. **Analysis**: Get Brooklyn bookmaker-style analysis with current context
+3. **Action**: Receive clear BUY/SELL/HOLD with confidence score
+4. **Trade**: Direct Polymarket link for immediate action
 
 ## Example Interaction
 
-Here's how VigVinnie responds to market questions:
-
 **User:** "@VigVinnie NYC mayoral election thoughts?"
 
-**VigVinnie's Analysis Tweet:**
+**VigVinnie's Response:**
 > Word is Mamdani's pulling early traction with 26%-50% in the books, and the line's wobbling. Adams and Cuomo split the Dem vote, so the smart money's drifting toward the progressive yes side. With debates near and the juice shifting, there's value before the late action hits.
 
-**VigVinnie's Follow-up Tweet:**
-> See the actual tweet: https://x.com/VigVinnie/status/1972204104253350057
+**Follow-up Tweet with Link:**
+> https://polymarket.com/event/nyc-mayor-2025
 
-This two-tweet pattern gives you both the Brooklyn bookmaker analysis and direct market access.
+This two-tweet pattern delivers both analysis and market access.
+
+## The Problem VigVinnie Solves
+
+Prediction markets are exploding, but discovery remains broken:
+
+- **Discovery is noisy**: 114,450+ markets with inconsistent naming
+- **Research takes time**: Markets move fast, analysis is slow
+- **Generic bots fail**: Vague responses that don't help trading decisions
+
+VigVinnie cuts through the noise with personality-driven, actionable insights.
+
+## Technical Foundation
+
+VigVinnie is powered by AIGG's technical stack:
+
+- **Database**: 114,450 Polymarket markets, 6,991 active
+- **AI Models**: Fireworks (Qwen 3.5 72B) + Perplexity Sonar
+- **Framework**: DSPy for structured analysis generation
+- **Architecture**: 3-service microservices (Bot, Wrapper, Market API)
+- **Response Time**: 30-90 seconds end-to-end
+
+## Key Innovations
+
+### 1. Clean Market Index
+- Filters 114K markets down to 6,991 active (94% reduction)
+- Daily cleanup removes expired/inactive markets
+- 10× faster search with better results
+
+### 2. Smart Matching
+- LLM-based semantic search understands real questions
+- Handles typos, abbreviations, and context
+- Ranks by relevance, volume, and recency
+
+### 3. Consistent Format
+- Brooklyn bookmaker personality in every response
+- Clear BUY/SELL/HOLD with confidence scores
+- Twitter-optimized threading for analysis + links
 
 ## Getting Started
 
-Ready to start using VigVinnie? Here's what you need to know:
-
 ### For Users
-1. **Follow** [@VigVinnie](https://x.com/VigVinnie) on Twitter
-2. **Tweet** any market question mentioning @VigVinnie  
-3. **Get** Brooklyn bookmaker analysis + direct Polymarket link
+1. **Follow**: [@VigVinnie](https://x.com/VigVinnie) on Twitter
+2. **Tweet**: Any market question mentioning @VigVinnie
+3. **Trade**: Get analysis + direct Polymarket access
 
 ### For Developers
-Want to understand the technical architecture or deploy your own instance? Check out our comprehensive documentation in the tabs above.
+Want to understand the technical architecture or deploy your own instance? Explore the documentation sections below:
+
+- **[What is AIGG?](getting-started/what-is-aigg.md)** - Technical deep dive
+- **[System Architecture](architecture/system-overview.md)** - Infrastructure overview
+- **[Deployment Guide](deployment/deployment-guide.md)** - Production setup
+- **[AI Pipeline](ai-pipeline/analysis-pipeline.md)** - How insights are generated
 
 ## Why VigVinnie Works
 
-Traditional prediction market discovery is broken:
-- **Discovery is noisy** - Too many markets, poor search
-- **Naming is inconsistent** - Hard to find what you want  
-- **Timing matters** - Need fresh context for moving markets
+Traditional prediction market bots produce generic, unhelpful responses. VigVinnie succeeds because:
 
-VigVinnie solves this by combining AIGG's technical capabilities with an authentic Brooklyn bookmaker personality that users trust and enjoy interacting with.
+- **Authentic Personality**: Brooklyn bookmaker voice users trust
+- **Technical Depth**: AIGG's sophisticated matching and analysis
+- **Action-Oriented**: Every response includes clear trading signals
+- **Fast Execution**: 30-90 second response times
+- **Real Markets**: Direct links to actual Polymarket events
 
 ## Resources
 
-- **GitHub**: [clydedevv/VinnieTheVig](https://github.com/clydedevv/VinnieTheVig)
-- **Twitter**: [@VigVinnie](https://x.com/VigVinnie)
-- **Documentation**: Check the tabs above for technical guides
-- **API Reference**: Detailed endpoint documentation
+- **Twitter**: [@VigVinnie](https://x.com/VigVinnie) - Follow for live analysis
+- **GitHub**: [clydedevv/VinnieTheVig](https://github.com/clydedevv/VinnieTheVig) - Source code
+- **Documentation**: Technical guides and API reference below
+
+Built with the prediction markets community in mind.

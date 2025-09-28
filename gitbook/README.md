@@ -2,7 +2,7 @@
 
 ## Introduction
 
-AIGG lets anyone ask a market question on Twitter and get a concise answer they can act on: a one-paragraph rationale, a clear BUY/SELL/HOLD with confidence, and the exact Polymarket link.
+AIGG is the underlying technology that powers intelligent prediction market analysis. The system lets anyone ask a market question on Twitter and get a concise answer they can act on: a one-paragraph rationale, a clear BUY/SELL/HOLD with confidence, and the exact Polymarket link.
 
 ## The Problem We're Tackling
 
@@ -14,52 +14,37 @@ Prediction markets are having a moment. Crypto Twitter and mainstream outlets ar
 
 Most people either can't find the right market quickly or don't have the time to research it. Generic bots make this worse by producing vague text that doesn't help you trade.
 
-## The Solution
+## Meet VigVinnie
 
-AIGG is a Twitter-native companion for Polymarket. Mention @VigVinnie with a question and it does the heavy lifting: it identifies the correct market, adds current context when needed, and replies with a short, opinionated take and a confidence number; plus the official link that opens the market.
+While AIGG is the technology, **@VigVinnie** is the character who brings it to life on Twitter. VigVinnie is an Italian-American Brooklyn bookmaker with a Pepe profile picture who talks like he's been taking bets his whole life.
 
-- If you have domain expertise, AIGG accelerates you
-- If you don't, it gives you a usable starting point instead of sending you down a research rabbit hole
+**Follow VigVinnie:** [@VigVinnie](https://x.com/VigVinnie)
 
-## Live Examples
+### The Character
+- **Personality**: Brooklyn bookmaker with old-school betting parlor wisdom
+- **Voice**: Uses gambling terminology ("the line's wobbling", "smart money's drifting")  
+- **Background**: Italian-American who knows the streets and the books
+- **Style**: Direct, opinionated, and always ready with a take
 
-### Bitcoin Market Query
-```
-@user: "Will Bitcoin reach 200k?"
-@VigVinnie: "Word is Bitcoin's struggling below $110K after brutal selloffs.
-Smart money's laying action on NO with Fed tightening. (85% confidence)
+### How It Works
+Mention @VigVinnie with any market question and he does the heavy lifting: identifies the correct market, adds current context when needed, and replies with a short, opinionated take and confidence number, plus the official Polymarket link.
 
-BUY NO
+- If you have domain expertise, VigVinnie accelerates you
+- If you don't, he gives you a usable starting point instead of sending you down a research rabbit hole
 
-https://polymarket.com/event/bitcoin-200k-2025"
-```
+## Example Interaction
 
-### Fed Rates Query
-```
-@user: "Fed cutting rates?"
-@VigVinnie: "Word is the Fed already dropped rates in July and Powell's
-signaling more cuts. Smart money's leaning hard on YES. (90% confidence)
+Here's how VigVinnie responds to market questions:
 
-BUY YES
+**User:** "@VigVinnie NYC mayoral election thoughts?"
 
-https://polymarket.com/event/will-1-fed-rate-cut-happen-in-2025"
-```
+**VigVinnie's Analysis Tweet:**
+> Word is Mamdani's pulling early traction with 26%-50% in the books, and the line's wobbling. Adams and Cuomo split the Dem vote, so the smart money's drifting toward the progressive yes side. With debates near and the juice shifting, there's value before the late action hits.
 
-## Live Twitter Bot in Action
+**VigVinnie's Follow-up Tweet:**
+> [Polymarket link with clean preview]
 
-Here are real examples of @VigVinnie responding to user queries, showing the complete two-tweet thread pattern:
-
-### NYC Mayoral Election Analysis
-The first tweet delivers the analysis with Brooklyn bookmaker personality and trading recommendation:
-
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Word is Mamdani&#39;s pulling early traction with 26%-50% in the books, and the line's wobbling. Adams and Cuomo split the Dem vote, so the smart money's drifting toward the progressive yes side. With debates near and the juice shifting, there's value before the late action hits.…</p>&mdash; Vinnie the Vig (@VigVinnie) <a href="https://twitter.com/VigVinnie/status/1972204098754670903?ref_src=twsrc%5Etfw">September 28, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-### Direct Market Link Follow-up
-The second tweet in the thread provides the clean Polymarket preview link:
-
-<blockquote class="twitter-tweet"><p lang="qme" dir="ltr"><a href="https://t.co/vdkGc6kHvl">https://t.co/vdkGc6kHvl</a></p>&mdash; Vinnie the Vig (@VigVinnie) <a href="https://twitter.com/VigVinnie/status/1972203662261796917?ref_src=twsrc%5Etfw">September 28, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-This two-tweet pattern ensures users get both the analysis and direct access to trade, while keeping each tweet under Twitter's character limits and providing clean preview links.
+This two-tweet pattern gives you both the Brooklyn bookmaker analysis and direct market access.
 
 ## Key Innovations
 
@@ -76,14 +61,15 @@ Answers follow a consistent shape: what matters now, the stance (BUY/SELL/HOLD),
 
 Under the hood, we use an LLM-guided pipeline and DSPy-style prompting to enforce structure and consistency. A lightweight research step (e.g., Perplexity Sonar) is triggered only for time-sensitive topics to keep latency and costs predictable.
 
-## How It Works
+## Technical Flow
 
-You mention @VigVinnie with a question: "BTC at 200k in 2025?" or "Ukraine-Russia ceasefire before July?"
+When you mention @VigVinnie with a question like "BTC at 200k in 2025?" or "Ukraine-Russia ceasefire before July?", here's what happens behind the scenes:
 
-1. **Parse & Normalize**: AiGG parses the intent, normalizes entities and dates, and queries the active index
+1. **Parse & Normalize**: AIGG parses the intent, normalizes entities and dates, and queries the active market index
 2. **Match & Verify**: The matcher returns high-confidence candidates and verifies the official slug to guarantee a correct link
-3. **Research & Analyze**: If the topic is moving fast, AiGG pulls fresh public context
-4. **Synthesize & Reply**: Creates a tight paragraph that surfaces key drivers (policy, flows, deadlines, technical levels, diplomatic constraints), adds a clear stance with confidence, and replies with the full Polymarket URL
+3. **Research & Analyze**: If the topic is moving fast, AIGG pulls fresh public context via Perplexity
+4. **Character Voice**: VigVinnie's Brooklyn bookmaker personality shapes the response with gambling terminology and street-smart analysis
+5. **Synthesize & Reply**: Creates a tight paragraph that surfaces key drivers, adds a clear stance with confidence, and replies with the full Polymarket URL
 
 End-to-end, the flow typically completes in 30-90 seconds.
 
@@ -106,7 +92,7 @@ End-to-end, the flow typically completes in 30-90 seconds.
 ```bash
 # Clone repository
 git clone https://github.com/clydedevv/VinnieTheVig.git
-cd aigg-insights
+cd VinnieTheVig
 
 # Install dependencies
 pip install -r requirements.txt

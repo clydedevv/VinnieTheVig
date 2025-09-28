@@ -45,6 +45,22 @@ BUY YES
 https://polymarket.com/event/will-1-fed-rate-cut-happen-in-2025"
 ```
 
+## Live Twitter Bot in Action
+
+Here are real examples of @VigVinnie responding to user queries, showing the complete two-tweet thread pattern:
+
+### NYC Mayoral Election Analysis
+The first tweet delivers the analysis with Brooklyn bookmaker personality and trading recommendation:
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Word is Mamdani&#39;s pulling early traction with 26%-50% in the books, and the line's wobbling. Adams and Cuomo split the Dem vote, so the smart money's drifting toward the progressive yes side. With debates near and the juice shifting, there's value before the late action hits.…</p>&mdash; Vinnie the Vig (@VigVinnie) <a href="https://twitter.com/VigVinnie/status/1972204098754670903?ref_src=twsrc%5Etfw">September 28, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+### Direct Market Link Follow-up
+The second tweet in the thread provides the clean Polymarket preview link:
+
+<blockquote class="twitter-tweet"><p lang="qme" dir="ltr"><a href="https://t.co/vdkGc6kHvl">https://t.co/vdkGc6kHvl</a></p>&mdash; Vinnie the Vig (@VigVinnie) <a href="https://twitter.com/VigVinnie/status/1972203662261796917?ref_src=twsrc%5Etfw">September 28, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+This two-tweet pattern ensures users get both the analysis and direct access to trade, while keeping each tweet under Twitter's character limits and providing clean preview links.
+
 ## Key Innovations
 
 AIGG stands on three pillars:

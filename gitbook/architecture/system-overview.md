@@ -41,7 +41,7 @@ The AIGG system runs as three independent microservices communicating via HTTP A
 
 ### 4. DSPy Analysis Pipeline
 - Purpose: Generate trading recommendations
-- Technology: DSPy framework with Fireworks AI (Qwen 3.5 72B)
+- Technology: DSPy framework with Fireworks AI (Qwen 3.0 235B)
 - Research: Perplexity Sonar for real-time news
 - Output: Structured analysis with BUY/SELL/HOLD recommendations
 
@@ -111,7 +111,7 @@ The AIGG system runs as three independent microservices communicating via HTTP A
 
 - Twitter API v2: Mention polling and reply posting
 - Polymarket API: Market data synchronization
-- Fireworks AI: LLM inference (Qwen 3.5 72B)
+- Fireworks AI: LLM inference (Qwen 3.0 235B)
 - Perplexity API: Real-time news research
 - PostgreSQL: Data persistence
 
@@ -160,7 +160,7 @@ aigg-insights/
 
 ### AI Framework
 - DSPy: Structured prompting and consistent outputs
-- Fireworks AI: Fast inference with Qwen 3.5 72B
+- Fireworks AI: Fast inference with Qwen 3.0 235B
 - Perplexity Sonar: Real-time news and research
 
 ### Infrastructure

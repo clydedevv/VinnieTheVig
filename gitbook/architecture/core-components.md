@@ -65,7 +65,7 @@ The core AI engine that generates market insights and trading recommendations.
 
 ### Implementation
 - Location: `src/flows/dspy_enhanced_aigg_flow.py`
-- LLM: Fireworks AI with Qwen 3.5 72B
+- LLM: Fireworks AI with Qwen 3.0 235B
 - Research: Perplexity Sonar for real-time news
 
 ## 5. LLM Market Matcher
@@ -74,7 +74,7 @@ Semantic search engine for finding relevant markets from the database.
 
 ### Matching Strategy
 - Category-Based Search: Groups markets by theme
-- LLM-Powered Matching: Semantic understanding via Qwen 3.5 72B
+- LLM-Powered Matching: Semantic understanding via Qwen 3.0 235B
 - Multi-Stage Filtering: Progressive result narrowing
 - Relevance Scoring: Query similarity ranking
 
@@ -103,7 +103,7 @@ PostgreSQL database managing market data and analysis results.
 ## 7. External Integrations
 
 ### Fireworks AI
-- Model: Qwen 3.5 72B
+- Model: Qwen 3.0 235B
 - Purpose: Market matching and analysis
 - Response Time: 2-3 seconds
 - Configuration: Via DSPy utilities

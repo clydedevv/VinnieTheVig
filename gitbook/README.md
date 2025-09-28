@@ -57,7 +57,7 @@ VigVinnie cuts through the noise with personality-driven, actionable insights.
 VigVinnie is powered by AIGG's technical stack:
 
 * **Database**: Sifting through \~100k Polymarket markets weekly, 6,991 active on a daily basis
-* **AI Models**: Fireworks (Qwen 3.5 72B) + Perplexity Sonar
+* **AI Models**: Fireworks (Qwen 3.0 235B) + Perplexity Sonar
 * **Framework**: DSPy for structured analysis generation
 * **Architecture**: 3-service microservices (Bot, Wrapper, Market API)
 * **Response Time**: 30-90 seconds end-to-end

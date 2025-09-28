@@ -57,7 +57,7 @@ python3 main.py wrapper-api --port 8003
 Service: HEALTHY
 Version: 1.0.0
 Rate Limiting: 1 req/min per user
-AI Models: Fireworks (Qwen 3.5 72B) + Perplexity Sonar
+AI Models: Fireworks (Qwen 3.0 235B) + Perplexity Sonar
 ```
 
 **Core Functionality:**
@@ -192,7 +192,7 @@ API Rate Limits:       Within Twitter/Perplexity bounds
 - Research Depth: 3-5 sources
 
 # Fireworks AI
-- Model: Qwen-3.5-72B-Instruct
+- Model: Qwen 3.0 235B
 - Latency: < 2 seconds
 - Token Limit: 8192
 ```

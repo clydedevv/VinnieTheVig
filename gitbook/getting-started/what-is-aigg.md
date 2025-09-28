@@ -79,7 +79,7 @@ You tweet: "@VigVinnie Will Bitcoin reach 200k?"
 ## Technical Architecture
 
 ### Core Technologies
-- **LLM**: Fireworks AI with Qwen 3.5 72B (2-3s latency)
+- **LLM**: Fireworks AI with Qwen 3.0 235B (2-3s latency)
 - **Research**: Perplexity Sonar for real-time data
 - **Framework**: DSPy for structured generation
 - **Database**: PostgreSQL with 114K markets indexed

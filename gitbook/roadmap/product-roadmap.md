@@ -11,7 +11,7 @@
 - PostgreSQL with optimized indexes
 
 **AI Pipeline**
-- DSPy framework with Fireworks AI (Qwen 3.5 72B)
+- DSPy framework with Fireworks AI (Qwen 3.0 235B)
 - Perplexity Sonar for research
 - Structured output generation
 - 50-100 confidence scoring

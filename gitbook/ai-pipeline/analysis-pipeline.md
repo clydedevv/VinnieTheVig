@@ -45,7 +45,7 @@ The system uses LLM-based category matching to find relevant markets:
    - Returns top 100 candidates
 
 3. **LLM Ranking**
-   - Qwen 3.5 72B model ranks candidates by relevance
+   - Qwen 3.0 235B model ranks candidates by relevance
    - Considers query intent and market specificity
    - Returns best matching market
 
@@ -170,11 +170,11 @@ class VinnieFormatter:
 ```python
 def analyze_with_fallback(query):
     try:
-        # Primary: Fireworks AI with Qwen 3.5 72B
+        # Primary: Fireworks AI with Qwen 3.0 235B
         return primary_analysis(query)
     except:
         try:
-            # Fallback: Groq with Llama 3.1 70B
+            # Fallback: Alternative model (configurable)
             return fallback_analysis(query)
         except:
             # Safe default
@@ -189,7 +189,7 @@ def analyze_with_fallback(query):
 
 ### Primary Models
 
-**Fireworks AI - Qwen 3.5 72B**
+**Fireworks AI - Qwen 3.0 235B**
 - Purpose: Market matching and analysis
 - Speed: 2-3 seconds per request
 - Cost: $0.40/million tokens
@@ -200,11 +200,9 @@ def analyze_with_fallback(query):
 - Features: Web search with citations
 
 ### Alternative Models
-
-**Groq - Llama 3.3 70B**
-- Purpose: Backup analysis
-- Speed: 1-2 seconds per request
-- Use case: High-volume periods
+- Purpose: Backup analysis when primary model is unavailable
+- Note: Any compatible LLM can be substituted here
+- Use case: High-volume periods or model failover
 
 ## Error Handling
 

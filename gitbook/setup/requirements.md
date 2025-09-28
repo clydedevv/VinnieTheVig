@@ -1,20 +1,11 @@
 # System Requirements
 
-## Minimum Requirements
+## Basic Requirements
 
-### Hardware
-
-* **CPU**: 4+ cores (Intel/AMD x64)
-* **RAM**: 8GB minimum, 16GB recommended
-* **Storage**: 20GB SSD space
-* **Network**: Stable internet connection (100+ Mbps)
-
-### Operating System
-
-* **Ubuntu**: 20.04 LTS or newer
-* **Debian**: 11 or newer
-* **macOS**: 12.0+ (Monterey or newer)
-* **WSL2**: Windows 10/11 with Ubuntu
+* **Python**: 3.11 or newer
+* **PostgreSQL**: Any recent version
+* **API Access**: Twitter, Fireworks AI, Perplexity (see API Keys section)
+* **Network**: Stable internet connection for API calls
 
 ### Software Dependencies
 
@@ -106,31 +97,25 @@ mkdocs-material==9.5.0
 
 #### Twitter/X API
 
-* **Tier**: Basic or Pro ($100-$5000/month)
+* **Purpose**: Monitoring mentions and posting replies
 * **Endpoints**: Mentions timeline, Tweet creation
-* **Rate Limits**:
-  * Basic: 10 requests/min
-  * Pro: 300 requests/min
 * **Setup**: [developer.twitter.com](https://developer.twitter.com)
 
 #### Fireworks AI
 
-* **Model**: Qwen-3.5-72B
-* **Pricing**: $0.004 per 1K tokens
-* **Speed**: 300+ tokens/second
+* **Purpose**: LLM inference for analysis
+* **Model**: Qwen 3.0 235B (or compatible alternatives)
 * **Setup**: [fireworks.ai](https://fireworks.ai)
 
 #### Perplexity API
 
-* **Model**: Sonar-small
-* **Pricing**: $0.005 per request
-* **Usage**: Real-time research
+* **Purpose**: Real-time research and news
 * **Setup**: [perplexity.ai/api](https://perplexity.ai/api)
 
 #### OpenAI (Optional)
 
-* **Models**: GPT-4o, GPT-4o-mini
-* **Pricing**: $0.01-0.03 per 1K tokens
+* **Purpose**: Alternative LLM provider
+* **Models**: GPT-4 and variants
 * **Fallback**: Secondary LLM provider
 * **Setup**: [platform.openai.com](https://platform.openai.com)
 

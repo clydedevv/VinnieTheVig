@@ -3,20 +3,23 @@
 ## Minimum Requirements
 
 ### Hardware
-- **CPU**: 4+ cores (Intel/AMD x64)
-- **RAM**: 8GB minimum, 16GB recommended
-- **Storage**: 20GB SSD space
-- **Network**: Stable internet connection (100+ Mbps)
+
+* **CPU**: 4+ cores (Intel/AMD x64)
+* **RAM**: 8GB minimum, 16GB recommended
+* **Storage**: 20GB SSD space
+* **Network**: Stable internet connection (100+ Mbps)
 
 ### Operating System
-- **Ubuntu**: 20.04 LTS or newer
-- **Debian**: 11 or newer
-- **macOS**: 12.0+ (Monterey or newer)
-- **WSL2**: Windows 10/11 with Ubuntu
+
+* **Ubuntu**: 20.04 LTS or newer
+* **Debian**: 11 or newer
+* **macOS**: 12.0+ (Monterey or newer)
+* **WSL2**: Windows 10/11 with Ubuntu
 
 ### Software Dependencies
 
 #### Python
+
 ```bash
 # Python 3.11 or newer required
 python3 --version
@@ -24,6 +27,7 @@ python3 --version
 ```
 
 #### PostgreSQL
+
 ```bash
 # PostgreSQL 14+ required
 psql --version
@@ -31,6 +35,7 @@ psql --version
 ```
 
 #### System Packages
+
 ```bash
 # Required system packages
 sudo apt-get update
@@ -48,6 +53,7 @@ sudo apt-get install -y \
 ## Python Dependencies
 
 ### Core Libraries
+
 ```txt
 # Framework & API
 fastapi==0.115.0
@@ -77,6 +83,7 @@ tenacity==9.0.0
 ```
 
 ### Development Dependencies
+
 ```txt
 # Testing
 pytest==8.3.4
@@ -98,34 +105,39 @@ mkdocs-material==9.5.0
 ### Required API Access
 
 #### Twitter/X API
-- **Tier**: Basic or Pro ($100-$5000/month)
-- **Endpoints**: Mentions timeline, Tweet creation
-- **Rate Limits**:
-  - Basic: 10 requests/min
-  - Pro: 300 requests/min
-- **Setup**: [developer.twitter.com](https://developer.twitter.com)
+
+* **Tier**: Basic or Pro ($100-$5000/month)
+* **Endpoints**: Mentions timeline, Tweet creation
+* **Rate Limits**:
+  * Basic: 10 requests/min
+  * Pro: 300 requests/min
+* **Setup**: [developer.twitter.com](https://developer.twitter.com)
 
 #### Fireworks AI
-- **Model**: Qwen-3.5-72B
-- **Pricing**: $0.004 per 1K tokens
-- **Speed**: 300+ tokens/second
-- **Setup**: [fireworks.ai](https://fireworks.ai)
+
+* **Model**: Qwen-3.5-72B
+* **Pricing**: $0.004 per 1K tokens
+* **Speed**: 300+ tokens/second
+* **Setup**: [fireworks.ai](https://fireworks.ai)
 
 #### Perplexity API
-- **Model**: Sonar-small
-- **Pricing**: $0.005 per request
-- **Usage**: Real-time research
-- **Setup**: [perplexity.ai/api](https://perplexity.ai/api)
+
+* **Model**: Sonar-small
+* **Pricing**: $0.005 per request
+* **Usage**: Real-time research
+* **Setup**: [perplexity.ai/api](https://perplexity.ai/api)
 
 #### OpenAI (Optional)
-- **Models**: GPT-4o, GPT-4o-mini
-- **Pricing**: $0.01-0.03 per 1K tokens
-- **Fallback**: Secondary LLM provider
-- **Setup**: [platform.openai.com](https://platform.openai.com)
+
+* **Models**: GPT-4o, GPT-4o-mini
+* **Pricing**: $0.01-0.03 per 1K tokens
+* **Fallback**: Secondary LLM provider
+* **Setup**: [platform.openai.com](https://platform.openai.com)
 
 ### Optional Services
 
 #### Redis (Caching)
+
 ```bash
 # For production scaling
 sudo apt-get install redis-server
@@ -133,6 +145,7 @@ redis-cli --version
 ```
 
 #### Docker (Containerization)
+
 ```bash
 # For deployment
 curl -fsSL https://get.docker.com -o get-docker.sh
@@ -143,14 +156,16 @@ docker --version
 ## Network Requirements
 
 ### Ports
-| Port | Service | Required |
-|------|---------|----------|
-| 8001 | Market API | Yes |
-| 8003 | Twitter Wrapper | Yes |
-| 5432 | PostgreSQL | Yes |
-| 6379 | Redis | Optional |
+
+| Port | Service         | Required |
+| ---- | --------------- | -------- |
+| 8001 | Market API      | Yes      |
+| 8003 | Twitter Wrapper | Yes      |
+| 5432 | PostgreSQL      | Yes      |
+| 6379 | Redis           | Optional |
 
 ### Firewall Configuration
+
 ```bash
 # Open required ports
 sudo ufw allow 8001/tcp
@@ -159,13 +174,15 @@ sudo ufw allow 5432/tcp
 ```
 
 ### Domain & SSL (Production)
-- Domain name for API access
-- SSL certificate (Let's Encrypt)
-- Reverse proxy (Nginx/Caddy)
+
+* Domain name for API access
+* SSL certificate (Let's Encrypt)
+* Reverse proxy (Nginx/Caddy)
 
 ## Performance Recommendations
 
 ### Database Optimization
+
 ```sql
 -- Recommended PostgreSQL settings
 ALTER SYSTEM SET shared_buffers = '2GB';
@@ -175,6 +192,7 @@ ALTER SYSTEM SET random_page_cost = 1.1;
 ```
 
 ### Python Environment
+
 ```bash
 # Use virtual environment
 python3 -m venv venv
@@ -186,6 +204,7 @@ pip install -r requirements.txt --use-pep517
 ```
 
 ### System Limits
+
 ```bash
 # Increase file descriptors
 echo "* soft nofile 65536" >> /etc/security/limits.conf
@@ -199,24 +218,28 @@ sysctl -p
 ## Scaling Considerations
 
 ### Small Scale (< 100 requests/day)
-- Single server deployment
-- SQLite or PostgreSQL
-- Basic Twitter API tier
+
+* Single server deployment
+* SQLite or PostgreSQL
+* Basic Twitter API tier
 
 ### Medium Scale (100-1000 requests/day)
-- Dedicated database server
-- Redis caching layer
-- Pro Twitter API tier
+
+* Dedicated database server
+* Redis caching layer
+* Pro Twitter API tier
 
 ### Large Scale (1000+ requests/day)
-- Load balanced API servers
-- PostgreSQL replication
-- Queue system (RabbitMQ/Kafka)
-- Enterprise Twitter API
+
+* Load balanced API servers
+* PostgreSQL replication
+* Queue system (RabbitMQ/Kafka)
+* Enterprise Twitter API
 
 ## Development Environment
 
 ### VS Code Extensions
+
 ```json
 {
   "recommendations": [
@@ -230,6 +253,7 @@ sysctl -p
 ```
 
 ### Pre-commit Hooks
+
 ```yaml
 # .pre-commit-config.yaml
 repos:
@@ -246,6 +270,7 @@ repos:
 ## Verification Checklist
 
 ### System Check Script
+
 ```bash
 #!/bin/bash
 # save as check_requirements.sh
@@ -282,6 +307,7 @@ echo "Check complete!"
 ## Next Steps
 
 Once requirements are met:
+
 1. [Environment Setup](environment-setup.md)
 2. [Database Configuration](database-configuration.md)
-3. [API Keys Setup](api-keys.md)
+3. [API Keys Setup](broken-reference)

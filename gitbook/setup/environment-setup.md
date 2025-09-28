@@ -5,35 +5,39 @@ Complete guide to setting up your development environment for AIGG Insights.
 ## System Requirements
 
 ### Minimum Requirements
-- **OS**: Ubuntu 20.04+, macOS 12+, or Windows 10+ (WSL2)
-- **Python**: 3.11 or higher
-- **PostgreSQL**: 14.0 or higher
-- **RAM**: 8GB minimum, 16GB recommended
-- **Storage**: 10GB free space
-- **CPU**: 4 cores recommended
+
+* **OS**: Ubuntu 20.04+, macOS 12+, or Windows 10+ (WSL2)
+* **Python**: 3.11 or higher
+* **PostgreSQL**: 14.0 or higher
+* **RAM**: 8GB minimum, 16GB recommended
+* **Storage**: 10GB free space
+* **CPU**: 4 cores recommended
 
 ### Network Requirements
-- Stable internet connection for API calls
-- Ports 8001, 8003 available for local services
-- PostgreSQL default port 5432
+
+* Stable internet connection for API calls
+* Ports 8001, 8003 available for local services
+* PostgreSQL default port 5432
 
 ## Python Environment Setup
 
 ### 1. Install Python 3.11+
 
 **Ubuntu/Debian:**
+
 ```bash
 sudo apt update
 sudo apt install python3.11 python3.11-venv python3.11-dev
 ```
 
 **macOS (using Homebrew):**
+
 ```bash
 brew install python@3.11
 ```
 
-**Windows:**
-Download from [python.org](https://www.python.org/downloads/) or use:
+**Windows:** Download from [python.org](https://www.python.org/downloads/) or use:
+
 ```powershell
 winget install Python.Python.3.11
 ```
@@ -66,6 +70,7 @@ pip install wheel setuptools
 ### 1. Install PostgreSQL
 
 **Ubuntu/Debian:**
+
 ```bash
 sudo apt install postgresql-14 postgresql-client-14
 sudo systemctl start postgresql
@@ -73,13 +78,13 @@ sudo systemctl enable postgresql
 ```
 
 **macOS:**
+
 ```bash
 brew install postgresql@14
 brew services start postgresql@14
 ```
 
-**Windows:**
-Download installer from [postgresql.org](https://www.postgresql.org/download/windows/)
+**Windows:** Download installer from [postgresql.org](https://www.postgresql.org/download/windows/)
 
 ### 2. Create Database and User
 
@@ -107,6 +112,7 @@ sudo nano /etc/postgresql/14/main/postgresql.conf
 ```
 
 Recommended settings:
+
 ```ini
 # Memory settings
 shared_buffers = 256MB
@@ -220,8 +226,8 @@ python -c "import fastapi; import dspy; print('APIs OK')"
 1. Set Project Interpreter: `File → Settings → Project → Python Interpreter`
 2. Select virtual environment: `venv/bin/python`
 3. Mark directories:
-   - `src` as Sources Root
-   - `tests` as Test Sources Root
+   * `src` as Sources Root
+   * `tests` as Test Sources Root
 
 ## Docker Setup (Optional)
 
@@ -321,6 +327,7 @@ python scripts/check_environment.py
 ```
 
 Expected output:
+
 ```
 Python version: 3.11.7
 PostgreSQL connection: OK
@@ -336,6 +343,7 @@ Environment ready!
 ## Common Issues
 
 ### Python Version Mismatch
+
 ```bash
 # Check Python version
 python --version
@@ -345,6 +353,7 @@ python3.11 -m venv venv
 ```
 
 ### PostgreSQL Connection Refused
+
 ```bash
 # Check PostgreSQL status
 sudo systemctl status postgresql
@@ -354,6 +363,7 @@ psql -U aigg_user -d aigg_insights -h localhost
 ```
 
 ### Module Import Errors
+
 ```bash
 # Reinstall dependencies
 pip install -r requirements.txt --force-reinstall
@@ -363,6 +373,7 @@ pip cache purge
 ```
 
 ### Permission Errors
+
 ```bash
 # Fix ownership
 sudo chown -R $USER:$USER .
@@ -374,5 +385,5 @@ chmod -R 755 .
 ## Next Steps
 
 1. [Configure Database](database-configuration.md)
-2. [Set Up API Keys](api-keys.md)
+2. [Set Up API Keys](broken-reference)
 3. [Run the System](running-the-system.md)

@@ -5,16 +5,17 @@ Get AIGG Insights running in under 5 minutes with this quick start guide.
 ## Prerequisites
 
 Before starting, ensure you have:
-- Python 3.11+ installed
-- PostgreSQL 14+ running
-- API keys for OpenAI, Fireworks AI, and Perplexity
-- Twitter API credentials (for bot functionality)
+
+* Python 3.11+ installed
+* PostgreSQL 14+ running
+* API keys for OpenAI, Fireworks AI, and Perplexity
+* Twitter API credentials (for bot functionality)
 
 ## 1. Clone the Repository
 
 ```bash
 git clone https://github.com/clydedevv/VinnieTheVig.git
-cd aigg-insights
+cd VinnieTheVig
 ```
 
 ## 2. Install Dependencies
@@ -71,6 +72,7 @@ python main.py analyze "Will Bitcoin reach 200k in 2025?"
 ```
 
 Expected output:
+
 ```
 Finding relevant markets...
 Analyzing: BTC Above $200,000 by Dec 31, 2025
@@ -86,6 +88,7 @@ python main.py api-server --port 8001
 ```
 
 Test the API:
+
 ```bash
 curl http://localhost:8001/health
 ```
@@ -101,10 +104,10 @@ python main.py twitter-bot --interval 30 --disable-whitelist
 
 ## Next Steps
 
-- Read the [System Overview](../architecture/system-overview.md) to understand the architecture
-- Check out [Demo Examples](demo-examples.md) for more usage scenarios
-- Configure your [API Keys](../setup/api-keys.md) for production use
-- Learn about [Running the System](../setup/running-the-system.md) in different modes
+* Read the [System Overview](../architecture/system-overview.md) to understand the architecture
+* Check out [Demo Examples](demo-examples.md) for more usage scenarios
+* Configure your [API Keys](../setup/api-keys.md) for production use
+* Learn about [Running the System](../setup/running-the-system.md) in different modes
 
 ## Quick Command Reference
 
@@ -130,6 +133,7 @@ python main.py test
 ### Common Issues
 
 **Database Connection Error**
+
 ```bash
 # Check PostgreSQL is running
 sudo systemctl status postgresql
@@ -139,11 +143,13 @@ psql -U your_user -d aigg_insights
 ```
 
 **API Key Errors**
-- Ensure all API keys in `.env` are valid
-- Check rate limits haven't been exceeded
-- Verify API subscriptions are active
+
+* Ensure all API keys in `.env` are valid
+* Check rate limits haven't been exceeded
+* Verify API subscriptions are active
 
 **Module Import Errors**
+
 ```bash
 # Reinstall dependencies
 pip install -r requirements.txt --upgrade

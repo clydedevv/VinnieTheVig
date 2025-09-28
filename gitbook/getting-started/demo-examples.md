@@ -1,16 +1,23 @@
 # Demo Examples
 
-## Video Walkthrough
+<figure><img src="../.gitbook/assets/telegram-cloud-photo-size-4-5872798088979138604-y.jpg" alt=""><figcaption></figcaption></figure>
 
-<iframe src="https://www.loom.com/embed/YOUR_LOOM_VIDEO_ID_HERE" width="100%" height="450" frameborder="0" allowfullscreen></iframe>
+## Example 2
 
-## Working Examples
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+## Example 3:
+
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+## Categorical Examples
 
 ### Cryptocurrency Markets
 
 **Query**: `@VigVinnie Will Bitcoin reach 150k?`
 
 **Response**:
+
 ```
 Word is Bitcoin's reeling below $110K after a brutal selloff —
 over $1.7B in liquidations and ETF outflows piling up. Smart
@@ -22,6 +29,7 @@ https://polymarket.com/event/will-bitcoin-reach-150000-in-august-2025
 ```
 
 **Technical Process**:
+
 1. Query parsed for keywords: "Bitcoin", "150k"
 2. Market matcher finds: "Will Bitcoin reach $150,000 by December 31, 2025?"
 3. Research API pulls current BTC price ($109,850), liquidation data
@@ -32,6 +40,7 @@ https://polymarket.com/event/will-bitcoin-reach-150000-in-august-2025
 **Query**: `@VigVinnie Trump 2028?`
 
 **Response**:
+
 ```
 Word is the Supremes just shut the door on any 2028 comeback—
 22nd Amendment's still ironclad. The line's crooked if it gives
@@ -49,6 +58,7 @@ https://polymarket.com/event/will-donald-trump-win-2028-election
 **Query**: `@VigVinnie will the fed cut rates soon?`
 
 **Response**:
+
 ```
 Word is the Fed already dropped rates in July and Powell's
 signaling more cuts. Smart money's leaning hard on YES.
@@ -83,6 +93,7 @@ def post_response(self, analysis_result, original_tweet_id):
 ### Vinnie Persona Implementation
 
 From `dspy_enhanced_aigg_flow.py:83-92`:
+
 ```python
 # High confidence: "Trust me on this one - sharp money's moving heavy..."
 # Medium confidence: "Something's cooking here, the vig's telling a story..."
@@ -92,12 +103,14 @@ From `dspy_enhanced_aigg_flow.py:83-92`:
 ## Error Handling
 
 ### Market Not Found
+
 ```
 Can't find that market in my book. Try being more specific—
 team name, date, price level.
 ```
 
 ### Ambiguous Query
+
 ```
 Which stock market you talking about? S&P 500? Tesla?
 Give me something specific.
@@ -125,30 +138,33 @@ gantt
     Post Thread      :post, 42, 1
 ```
 
-| Stage | Duration | Component |
-|-------|----------|-----------|
-| Query Detection | 30s | Twitter API polling |
-| Market Matching | 2s | LLM semantic search |
-| Research | 5s | Perplexity API |
-| Analysis | 3s | DSPy pipeline |
-| Response | 1s | Tweet posting |
-| **Total** | **~13s** | End-to-end |
+| Stage           | Duration  | Component           |
+| --------------- | --------- | ------------------- |
+| Query Detection | 30s       | Twitter API polling |
+| Market Matching | 2s        | LLM semantic search |
+| Research        | 5s        | Perplexity API      |
+| Analysis        | 3s        | DSPy pipeline       |
+| Response        | 1s        | Tweet posting       |
+| **Total**       | **\~13s** | End-to-end          |
 
 ## Testing Queries
 
 ### Valid Queries
-- Specific price targets: "ETH to 10k?"
-- Time-bound events: "Biden approval above 50% by March?"
-- Binary outcomes: "Fed hike in Q1?"
+
+* Specific price targets: "ETH to 10k?"
+* Time-bound events: "Biden approval above 50% by March?"
+* Binary outcomes: "Fed hike in Q1?"
 
 ### Invalid Queries
-- Too vague: "markets?"
-- Multiple questions: "Bitcoin and ETH prices?"
-- Non-market: "What's the weather?"
+
+* Too vague: "markets?"
+* Multiple questions: "Bitcoin and ETH prices?"
+* Non-market: "What's the weather?"
 
 ## API Integration
 
 ### Direct Analysis
+
 ```bash
 curl -X POST http://localhost:8003/analyze \
   -H "Content-Type: application/json" \
@@ -160,15 +176,11 @@ curl -X POST http://localhost:8003/analyze \
 ```
 
 ### Market Search
+
 ```bash
 curl "http://localhost:8001/markets/search?q=bitcoin&limit=5"
 ```
 
 ## Tweet Embeds
 
-<!-- Add actual tweet IDs here -->
-<blockquote class="twitter-tweet">
-  <a href="https://twitter.com/VigVinnie/status/ACTUAL_TWEET_ID"></a>
-</blockquote>
-
-<script async src="https://platform.twitter.com/widgets.js"></script>
+>

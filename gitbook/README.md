@@ -18,23 +18,23 @@ People want to know "Is there a market for X?" and "What's the latest context?" 
 
 AIGG eliminates this friction with three key innovations:
 
-### 1. Custom, Clean Market Index
+### 1. Real-Time Market Indexing
 
-We maintain an "active only" index that dramatically improves search performance:
+We maintain a live database of active Polymarket events with hourly refresh cycles:
 
-* **Before**: 115,000+ total markets (many expired, duplicates, low volume)  
-* **After**: ~6,800 active markets (94% reduction)
-* **Result**: 10× faster search, more relevant results
-* **Updates**: Daily cleanup at 03:00 UTC
+* **Active-Only Focus**: Constantly filtering out expired markets as they close
+* **Live Data**: Indexing current odds, volume, and key market information  
+* **Performance**: Optimized for fast semantic search across active events
+* **Architecture**: Built for real-time market discovery and analysis
 
-### 2. AI Matcher That Understands Real Questions
+### 2. AI-Powered Market Matching
 
-Our matching engine combines multiple techniques for accuracy:
+Our AI workflow intelligently connects queries to the right markets:
 
-* **Fuzzy Matching**: Handles typos, abbreviations, variations
-* **Semantic Matching**: Understands meaning and context  
-* **Entity Recognition**: Identifies people, dates, events
-* **Relevance Ranking**: Prioritizes by volume, recency, status
+* **Smart Shortlisting**: AI first identifies potential market candidates
+* **Semantic Understanding**: Grasps meaning beyond exact keyword matches
+* **Context Awareness**: Considers timing, entities, and market relevance
+* **Final Selection**: AI ranks and selects the best match from shortlist
 
 ### 3. Structured Analysis with Real-Time Research
 
@@ -54,9 +54,8 @@ The key innovation is our DSPy flow that combines market odds with up-to-the-min
 ### The Character
 
 * **Personality**: Italian-American Brooklyn bookmaker with street-smart betting wisdom
-* **Voice**: Uses gambling terminology ("the line's wobbling", "smart money's drifting")
+* **Voice**: Uses classic mafia gambling terminology ("the line's wobbling", "smart money's drifting")
 * **Style**: Direct, opinionated analysis with confidence percentages
-* **Avatar**: Pepe profile picture that's become iconic in prediction markets
 
 ### The VigVinnie Experience
 
@@ -76,19 +75,13 @@ The key innovation is our DSPy flow that combines market odds with up-to-the-min
 
 <figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
-**Example 2:**&#x20;
+**Example 2: Live Tweet**
 
-**User:** "@VigVinnie NYC mayoral election thoughts?"
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Word is Mamdani&#39;s pulling early traction with 26%-50% in the books, and the line's wobbling. Adams and Cuomo split the Dem vote, so the smart money's drifting toward the progressive yes side. With debates near and the juice shifting, there's value before the late action hits.…</p>&mdash; Vinnie the Vig (@VigVinnie) <a href="https://twitter.com/VigVinnie/status/1972204098754670903?ref_src=twsrc%5Etfw">September 28, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-**VigVinnie's Response:**
+[See the full thread here](https://x.com/VigVinnie/status/1972204098754670903)
 
-> Word is Mamdani's pulling early traction with 26%-50% in the books, and the line's wobbling. Adams and Cuomo split the Dem vote, so the smart money's drifting toward the progressive yes side. With debates near and the juice shifting, there's value before the late action hits.
-
-**Follow-up Tweet with Link:**
-
-> https://polymarket.com/event/nyc-mayor-2025
-
-This two-tweet pattern delivers both analysis and market access.
+This demonstrates VigVinnie's signature style: market analysis in authentic bookmaker voice, followed by the direct Polymarket link.
 
 ## How The Technology Works
 
@@ -100,41 +93,31 @@ AIGG has the technical foundation to index active markets, semantically match in
 
 The flow combines three core technologies:
 
-**Market Indexing** → We maintain ~6,800 active markets from 115,000+ total, updated daily
+**Market Indexing** → Live database of active Polymarket events, refreshed hourly
 
-**Semantic Matching** → LLM-powered search understands natural language queries and ranks results by relevance
+**AI Matching** → Semantic understanding with intelligent shortlisting and final selection
 
-**Research Engine** → Perplexity integration provides real-time context and news for time-sensitive markets
+**Research Engine** → Perplexity integration for real-time news and market context
 
-## Technical Foundation
+## System Architecture
 
-VigVinnie is powered by AIGG's technical stack:
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   TWITTER BOT   │───>│  WRAPPER API    │───>│   MARKET API    │
+│   (Monitor)     │    │   (Analysis)    │    │   (Database)    │
+│   Port: N/A     │    │   Port: 8003    │    │   Port: 8001    │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+         │                       │                       │
+         ▼                       ▼                       ▼
+    Twitter API            DSPy + Perplexity       PostgreSQL DB
+   (Mentions/Replies)      (AI Analysis)         (Active Markets)
+```
 
- * **Database**: Indexing ~6,800 active polymarket markets daily
+**Core Stack:**
 * **AI Models**: Fireworks (Qwen 3.0 235B) + Perplexity Sonar
 * **Framework**: DSPy for structured analysis generation
-* **Architecture**: 3-service microservices (Bot, Wrapper, Market API)
+* **Database**: PostgreSQL with active market indexing
 * **Response Time**: 30-90 seconds end-to-end
-
-## Key Innovations
-
-### 1. Clean Market Index
-
-* Filters thousands of markets down to ~6,800 active daily
-* Daily cleanup removes expired/inactive markets
-* 10× faster search with better results
-
-### 2. Smart Matching
-
-* LLM-based semantic search understands real questions
-* Handles typos, abbreviations, and context
-* Ranks by relevance, volume, and recency
-
-### 3. Consistent Format
-
-* Brooklyn bookmaker personality in every response
-* Clear BUY/SELL/HOLD with confidence scores
-* Twitter-optimized threading for analysis + links
 
 ## Getting Started
 
@@ -155,12 +138,10 @@ Want to understand the technical architecture or deploy your own instance? Explo
 
 ## Why VigVinnie Works
 
-Traditional prediction market bots produce generic, unhelpful responses. VigVinnie succeeds because:
-
-* **Technical Depth**: AIGG's sophisticated matching and analysis
-* **Action-Oriented**: Every response includes clear trading signals
-* **Fast Execution**: 30-90 second response times
-* **Real Markets**: Direct links to actual Polymarket events
+* **Real-Time Intelligence**: Each response includes up-to-the-minute market context
+* **Authentic Voice**: Brooklyn bookmaker personality cuts through generic bot noise  
+* **Action-Oriented**: Clear BUY/SELL/HOLD recommendations with confidence scores
+* **Direct Access**: Immediate links to actual tradeable Polymarket events
 
 ## Resources
 

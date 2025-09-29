@@ -2,13 +2,13 @@
 
 ## Current Running State
 
-The AIGG system is currently deployed and running in production with three independent microservices communicating via HTTP APIs, backed by a **LIVE PostgreSQL database containing real-time Polymarket data for 114,450+ prediction markets**. This document details the live infrastructure state and operational characteristics.
+The AIGG system is currently deployed and running in production with three independent microservices communicating via HTTP APIs, backed by a **LIVE PostgreSQL database containing real-time Polymarket data for 115,000+ prediction markets**. This document details the live infrastructure state and operational characteristics.
 
 ### Key Production Highlights
-- Live Database: PostgreSQL with 114,450+ real Polymarket markets (not test data)
+- Live Database: PostgreSQL with 115,000+ real Polymarket markets (not test data)
 - Real-Time Sync: 5-minute polling intervals for market updates
 - Production APIs: Three microservices running 24/7 in tmux sessions
-- Active Trading: 6,991 markets with >$1000 volume actively tracked
+- Active Trading: ~6,800 markets with >$1000 volume actively tracked
 - Continuous Operation: System running since August 2024
 
 ## Service Architecture
@@ -36,7 +36,7 @@ python main.py api-server --port 8001
 # Status
 Service: HEALTHY
 Uptime: Since Aug 27 (long-running stable)
-Markets: 114,450 total / 6,991 active
+Markets: 115,000+ total / ~6,800 active
 Database: PostgreSQL with real-time sync
 ```
 
@@ -107,7 +107,7 @@ while True:
 
 ```sql
 -- Live Production Tables (Continuously Updated)
-polymarket_markets    -- 114,450+ markets (5-minute sync intervals)
+polymarket_markets    -- 115,000+ markets (5-minute sync intervals)
                      -- Contains: id, slug, title, description, active status,
                      -- outcomes, volume, liquidity, created_at, resolved status
 research              -- Real-time market research cache from Perplexity API
@@ -139,8 +139,8 @@ class LiveDataSynchronization:
         'polling_interval': '5 minutes',
         'active_market_threshold': '$1000 volume',
         'data_freshness': '< 5 minutes old',
-        'markets_tracked': '114,450+ total',
-        'active_markets': '6,991 tradeable',
+        'markets_tracked': '115,000+ total',
+        'active_markets': '~6,800 tradeable',
         'daily_updates': '~20,000 market updates',
         'data_retention': '90 days active, 1 year archive'
     }
@@ -290,8 +290,8 @@ Database Performance:
   Backup Schedule:  Daily automated (3AM UTC)
 
 Live Data Volume:
-  Total Markets:    114,450+ (all Polymarket)
-  Active Markets:   6,991 (volume > $1000)
+  Total Markets:    115,000+ (all Polymarket)
+  Active Markets:   ~6,800 (volume > $1000)
   Daily Queries:    100,000+ database operations
   API Calls:        10,000+ market searches/day
   Research Cache:   30-day rolling window

@@ -1,7 +1,6 @@
 # Table of contents
 
-* [Overview](README.md)
-* [What is AIGG?](getting-started/what-is-aigg.md)
+* [What is AIGG?](README.md)
 * [Quick Start Guide](getting-started/quick-start.md)
 * [Demo Examples](getting-started/demo-examples.md)
 

@@ -5,8 +5,8 @@
 ### Core Infrastructure
 
 **Database**
-- 114,450 Polymarket markets indexed
-- 6,991 actively traded markets
+- 115,000+ Polymarket markets indexed
+- ~6,800 actively traded markets
 - Real-time synchronization with Polymarket API
 - PostgreSQL with optimized indexes
 
@@ -25,7 +25,7 @@
 ### Current Performance
 
 - Response Time: 30-90 seconds end-to-end
-- Market Coverage: 114,450 total markets
+- Market Coverage: 115,000+ total markets
 - Query Performance: Sub-second database lookups
 - System Uptime: Continuous via tmux sessions
 
@@ -285,8 +285,8 @@ class AutonomousMarketMaker:
 
 ### Current Baseline
 - Response Time: 30-90 seconds
-- Market Coverage: 114,450 markets
-- Active Markets: 6,991
+- Market Coverage: 115,000+ markets
+- Active Markets: ~6,800
 - System Availability: Continuous operation
 
 ### 2025 Q2 Targets
@@ -361,4 +361,4 @@ The AIGG system will evolve from a Twitter bot to a comprehensive prediction mar
 
 3. **Long-term**: Multi-platform support, enterprise solutions, and API marketplace to establish market leadership
 
-With 114,450 markets indexed and proven AI capabilities, AIGG is positioned to become the primary intelligence layer for prediction markets, bridging the gap between raw market data and actionable trading insights.
+With 115,000+ markets indexed and proven AI capabilities, AIGG is positioned to become the primary intelligence layer for prediction markets, bridging the gap between raw market data and actionable trading insights.

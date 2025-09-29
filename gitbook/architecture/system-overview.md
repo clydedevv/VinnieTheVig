@@ -13,7 +13,7 @@ The AIGG system runs as three independent microservices communicating via HTTP A
          │                       │                       │
          ▼                       ▼                       ▼
     Twitter API            DSPy + Perplexity       PostgreSQL DB
-   (Mentions/Replies)      (AI Analysis)         (114,450 markets)
+   (Mentions/Replies)      (AI Analysis)         (115,000+ markets)
 ```
 
 ## Core Components
@@ -28,7 +28,7 @@ The AIGG system runs as three independent microservices communicating via HTTP A
 ### 2. Market API Server (Port 8001)
 - Purpose: Database access and market search
 - Technology: FastAPI with async handlers
-- Database: PostgreSQL with 114,450 markets (6,991 active)
+- Database: PostgreSQL with 115,000+ markets (~6,800 active)
 - Features: LLM-based semantic search using category matching
 - Performance: Sub-second market matching from live database
 - Process: `python main.py api-server --port 8001`
@@ -47,7 +47,7 @@ The AIGG system runs as three independent microservices communicating via HTTP A
 
 ### 5. PostgreSQL Database
 - Purpose: Market data storage and analysis persistence
-- Scale: 114,450 total markets, 6,991 actively traded
+- Scale: 115,000+ total markets, ~6,800 actively traded
 - Tables: polymarket_markets, research, analysis, conclusions
 - Maintenance: Automatic cleanup of inactive markets
 - Updates: Real-time synchronization with Polymarket
@@ -103,7 +103,7 @@ The AIGG system runs as three independent microservices communicating via HTTP A
 - Response Time: 30-90 seconds (includes research and analysis)
 - Polling Interval: 30 seconds for mention checks
 - Rate Limiting: 1 request per minute per user
-- Market Coverage: 114,450 total markets, 6,991 active
+- Market Coverage: 115,000+ total markets, ~6,800 active
 - Analysis Accuracy: High confidence with DSPy structured outputs
 - Uptime: Continuous operation via tmux sessions
 
@@ -119,7 +119,7 @@ The AIGG system runs as three independent microservices communicating via HTTP A
 
 ### Current Capacity
 - Mentions: 1,000+ per day capacity
-- Markets: 114,450 total (6,991 active)
+- Markets: 115,000+ total (~6,800 active)
 - Response Time: 30-90 seconds end-to-end
 - Concurrent Requests: 10-20
 

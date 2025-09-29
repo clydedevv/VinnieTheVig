@@ -1,4 +1,4 @@
-# AIGG - A Polymarket Companion
+# What is AIGG?
 
 AIGG is a Twitter-native companion for Polymarket that transforms market discovery from a research rabbit hole into a 30-second decision. Mention @VigVinnie with any market question and receive an actionable trading recommendation with the exact Polymarket link.
 
@@ -6,14 +6,13 @@ AIGG is a Twitter-native companion for Polymarket that transforms market discove
 
 ## The Problem We're Tackling
 
-Prediction markets are exploding in popularity, but the user experience remains fragmented:
+Prediction markets are growing rapidly, but discovering and researching relevant markets remains inconvenient:
 
-* **Discovery is noisy**: 114,450+ markets across different categories
-* **Naming is inconsistent**: Same events titled differently  
-* **Timing matters**: Markets move fast, research takes time
-* **Generic bots fail**: Vague responses that don't help trading decisions
+* **Market Discovery**: It's unclear if markets even exist for specific events you're curious about
+* **Research Overhead**: Doing proper research across thousands of markets is time-intensive  
+* **Fragmented Information**: Market data, news context, and analysis are scattered across different sources
 
-Most traders either can't find the right market quickly or don't have time to research it properly. This friction prevents confident participation and creates missed opportunities.
+People want to know "Is there a market for X?" and "What's the latest context?" but doing this research manually for each question is tedious and slow.
 
 ## The Solution
 
@@ -23,8 +22,8 @@ AIGG eliminates this friction with three key innovations:
 
 We maintain an "active only" index that dramatically improves search performance:
 
-* **Before**: 114,450 total markets (many expired, duplicates, low volume)
-* **After**: 6,991 active markets (94% reduction)
+* **Before**: 115,000+ total markets (many expired, duplicates, low volume)  
+* **After**: ~6,800 active markets (94% reduction)
 * **Result**: 10× faster search, more relevant results
 * **Updates**: Daily cleanup at 03:00 UTC
 
@@ -91,37 +90,27 @@ The key innovation is our DSPy flow that combines market odds with up-to-the-min
 
 This two-tweet pattern delivers both analysis and market access.
 
-## How The DSPy Flow Works
+## How The Technology Works
 
-The magic happens in our structured analysis pipeline:
+AIGG has the technical foundation to index active markets, semantically match incoming queries, and run a Perplexity DSPy-powered backend search to compile the best sources and research.
 
-### Step 1: Smart Market Matching
-* Parse natural language queries ("Fed cutting rates?")
-* Search 6,991 active markets semantically
-* Rank by relevance, volume, and recency
+**Current Implementation:** The bot replies with a condensed single paragraph followed by a preview of the relevant market.
 
-### Step 2: Real-Time Research Engine  
-* Detect time-sensitive topics automatically
-* Query Perplexity Sonar for breaking news
-* Gather market context and sentiment
+**Scalability Potential:** This could easily be upscaled to include more professional premium research, KOL opinions, institutional analysis, or multi-tiered intelligence levels.
 
-### Step 3: Structured Analysis Generation
-* Combine market data with fresh research
-* Generate Brooklyn bookmaker-style analysis
-* Include confidence scores and clear recommendations
+The flow combines three core technologies:
 
-### Step 4: Multi-Level Research Depth
-* **Basic**: Market odds + recent context
-* **Enhanced**: Breaking news + sentiment analysis  
-* **Deep**: Full research for major events
+**Market Indexing** → We maintain ~6,800 active markets from 115,000+ total, updated daily
 
-This structured approach ensures every response is both timely and actionable.
+**Semantic Matching** → LLM-powered search understands natural language queries and ranks results by relevance
+
+**Research Engine** → Perplexity integration provides real-time context and news for time-sensitive markets
 
 ## Technical Foundation
 
 VigVinnie is powered by AIGG's technical stack:
 
-* **Database**: Sifting through \~100k Polymarket markets weekly, 6,991 active on a daily basis
+ * **Database**: Indexing ~6,800 active polymarket markets daily
 * **AI Models**: Fireworks (Qwen 3.0 235B) + Perplexity Sonar
 * **Framework**: DSPy for structured analysis generation
 * **Architecture**: 3-service microservices (Bot, Wrapper, Market API)
@@ -131,7 +120,7 @@ VigVinnie is powered by AIGG's technical stack:
 
 ### 1. Clean Market Index
 
-* Filters thousands of markets down to 6,991 active daily
+* Filters thousands of markets down to ~6,800 active daily
 * Daily cleanup removes expired/inactive markets
 * 10× faster search with better results
 
@@ -179,4 +168,4 @@ Traditional prediction market bots produce generic, unhelpful responses. VigVinn
 * **GitHub**: [clydedevv/VinnieTheVig](https://github.com/clydedevv/VinnieTheVig) - Source code
 * **Documentation**: Technical guides and API reference below
 
-Built with the prediction markets community in mind.
+Built with the emergent prediction markets community in mind.

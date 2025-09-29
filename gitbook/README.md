@@ -4,6 +4,8 @@ AIGG is a Twitter-native companion for Polymarket that transforms market discove
 
 > [Visit @VigVinnie on Twitter](https://x.com/VigVinnie/highlights)
 
+<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
 ## The Problem We're Tackling
 
 Prediction markets are growing rapidly, but discovering and researching relevant markets remains inconvenient:
@@ -47,7 +49,6 @@ The key innovation is our DSPy flow that combines market odds with up-to-the-min
 
 ## Who is VigVinnie?
 
-<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 **@VigVinnie** is the Brooklyn bookmaker character who brings AIGG's technical analysis to life on Twitter.
 

@@ -1,444 +1,152 @@
 # AIGG Insights - AI-Powered Twitter Bot for Prediction Markets
 
-AI Twitter bot using DSPy framework and LLM-based market matching to analyze Polymarket prediction markets and provide intelligent trading recommendations via Twitter mentions.
+AIGG is a Twitter-native companion for Polymarket that transforms market discovery from a research rabbit hole into a 30-second decision. Mention @VigVinnie with any market question and receive an actionable trading recommendation with the exact Polymarket link.
 
 [![Twitter](https://img.shields.io/badge/Twitter-@VigVinnie-blue)](https://twitter.com/VigVinnie)
 [![Framework](https://img.shields.io/badge/Framework-DSPy-orange)]()
 
-## Live System Status
+> [Visit @VigVinnie on Twitter](https://x.com/VigVinnie/highlights)
 
-### Core Services
-- **Twitter Bot**: `@VigVinnie` - Live on Twitter, monitoring mentions 24/7
-- **Market API**: Available with 51K+ markets using LLM-based matching
-- **Database**: PostgreSQL with 3,168 active markets (auto-updated hourly)
-- **AI Framework**: DSPy with Fireworks AI (Qwen 3.5 72B) for structured analysis
-- **Market Matching**: Pure LLM-based semantic search (no hardcoded rules)
-- **Access Control**: 4-tier whitelist system (admin/vip/whitelist/blocked)
-- **Rate Limiting**: Twitter API optimized (30-second intervals)
+## The Problem We're Tackling
 
-### Current Statistics
-```
-Total Markets: 51,093 (3,168 active)
-Database Cleanup: 94% reduction (42,938 expired removed)
-Response Time: ~13-25 seconds
-Rate Limits: Fully automated (15-minute intervals)
-Uptime: 24/7 with tmux sessions
-Analysis Quality: Professional insights with specific data points
-```
+Prediction markets are growing rapidly, but discovering and researching relevant markets remains inconvenient:
 
-## How It Works
+* **Market Discovery**: It's unclear if markets even exist for specific events you're curious about
+* **Research Overhead**: Doing proper research across thousands of markets is time-intensive  
+* **Fragmented Information**: Market data, news context, and analysis are scattered across different sources
 
-### 1. Tweet at the Bot
-```twitter
-@aigginsights Will there be a Russia-Ukraine ceasefire before July?
-```
+People want to know "Is there a market for X?" and "What's the latest context?" but doing this research manually for each question is tedious and slow.
 
-### 2. DSPy-Enhanced Analysis Pipeline
-```
-Tweet → DSPy Query Understanding → LLM Market Matching → Perplexity Research → 
-DSPy Structured Analysis → Professional Recommendations → Twitter-Optimized Response
-```
+## The Solution
 
-### 3. Get Professional Intelligence
-```twitter
-Q: Russia-Ukraine ceasefire before July?
-Analysis: Diplomatic push by UK/France coalition faces Ukraine's withdrawal 
-demands vs Russia's territorial claims, limited progress expected
-Recommendation: SELL - negative outlook (60%)
-https://polymarket.com/event/russia-x-ukraine-ceasefire-before-july
-```
+AIGG eliminates this friction with three key innovations:
 
-## DSPy-Enhanced AI Analysis
+### 1. Real-Time Market Indexing
 
-### Multi-Stage Intelligence with DSPy Framework
-- **LLM Market Matching**: Pure AI-based semantic search, no hardcoded rules
-- **Real-time Research**: Perplexity Sonar for current events and context
-- **Structured Prompting**: DSPy signatures ensure consistent, high-quality outputs
-- **Fireworks AI**: Qwen 3.5 72B model for fast, intelligent analysis
-- **Twitter Optimization**: Smart truncation preserving sentence boundaries
+We maintain a live database of active Polymarket events with hourly refresh cycles:
 
-### Analysis Quality Examples
-```
-Before: "Okay, let's tackle this query"
-After: "ETF inflows up 40%, Fed rate cuts boost risk appetite, 
-       but $45k resistance remains key level"
+* **Active-Only Focus**: Constantly filtering out expired markets as they close
+* **Live Data**: Indexing current odds, volume, and key market information  
+* **Performance**: Optimized for fast semantic search across active events
+* **Architecture**: Built for real-time market discovery and analysis
 
-Before: "Market outlook uncertain"  
-After: "Strong diplomatic momentum from recent talks, but domestic 
-       opposition and sanctions timeline create uncertainty"
-```
+### 2. AI-Powered Market Matching
 
-### Smart Response Features
-- **Specific Data**: Mentions percentages, price levels, institutional flows
-- **Geopolitical Context**: References specific countries, policies, events
-- **Technical Analysis**: Support/resistance levels, volume trends
-- **Time-Sensitive**: Accounts for deadlines, election dates, market expiry
-- **Direct Trading**: Official Polymarket URLs with correct market slugs
+Our AI workflow intelligently connects queries to the right markets:
+
+* **Smart Shortlisting**: AI first identifies potential market candidates
+* **Semantic Understanding**: Grasps meaning beyond exact keyword matches
+* **Context Awareness**: Considers timing, entities, and market relevance
+* **Final Selection**: AI ranks and selects the best match from shortlist
+
+### 3. Structured Analysis with Real-Time Research
+
+The key innovation is our DSPy flow that combines market odds with up-to-the-minute news research:
+
+* **Market Data**: Current odds, volume, and activity
+* **Perplexity Search**: Latest news and context for time-sensitive events  
+* **Structured Generation**: Consistent analysis format with confidence scores
+* **Multi-Level Research**: Basic context vs deep research for breaking news
+
+## Who is VigVinnie?
+
+**@VigVinnie** is the Brooklyn bookmaker character who brings AIGG's technical analysis to life on Twitter.
+
+### The Character
+
+* **Personality**: Italian-American Brooklyn bookmaker with street-smart betting wisdom
+* **Voice**: Uses classic mafia gambling terminology ("the line's wobbling", "smart money's drifting")
+* **Style**: Direct, opinionated analysis with confidence percentages
+
+### The VigVinnie Experience
+
+1. **Ask**: Tweet any market question to @VigVinnie
+2. **Analysis**: Get Brooklyn bookmaker-style analysis with current context
+3. **Action**: Receive clear BUY/SELL/HOLD with confidence score
+4. **Trade**: Direct Polymarket link for immediate action
+
+**What makes VigVinnie special:**
+
+* **Real-Time Intelligence**: Each response includes the very latest news and context
+* **Market Understanding**: Combines technical odds analysis with current events
+* **Authentic Voice**: Brooklyn bookmaker personality that cuts through noise
+* **Threaded Responses**: Analysis tweet followed by clean preview link
+
+## Example Interaction
+
+**User:** "@VigVinnie NYC mayoral election thoughts?"
+
+**VigVinnie's Response:**
+
+> Word is Mamdani's pulling early traction with 26%-50% in the books, and the line's wobbling. Adams and Cuomo split the Dem vote, so the smart money's drifting toward the progressive yes side. With debates near and the juice shifting, there's value before the late action hits.
+
+**Follow-up Tweet with Link:**
+
+> https://polymarket.com/event/nyc-mayor-2025
+
+This demonstrates VigVinnie's signature style: market analysis in authentic bookmaker voice, followed by the direct Polymarket link.
+
+## How The Technology Works
+
+AIGG has the technical foundation to index active markets, semantically match incoming queries, and run a Perplexity DSPy-powered backend search to compile the best sources and research.
+
+**Current Implementation:** The bot replies with a condensed single paragraph followed by a preview of the relevant market.
+
+**Scalability Potential:** This could easily be upscaled to include more professional premium research, KOL opinions, institutional analysis, or multi-tiered intelligence levels.
+
+The flow combines three core technologies:
+
+**Market Indexing** → Live database of active Polymarket events, refreshed hourly
+
+**AI Matching** → Semantic understanding with intelligent shortlisting and final selection
+
+**Research Engine** → Perplexity integration for real-time news and market context
 
 ## System Architecture
 
-### DSPy-Enhanced Core Components
 ```
-┌─────────────────┐    ┌──────────────────┐    ┌─────────────────────┐
-│   Twitter Bot   │───▶│   Wrapper API    │───▶│  DSPy Enhanced      │
-│  (30sec cycle)  │    │  (Port: 8003)    │    │  AIGG Flow         │
-└─────────────────┘    └──────────────────┘    └─────────────────────┘
-         │                        │                       │
-         │                        ▼                       ▼
-         │              ┌──────────────────┐    ┌─────────────────────┐
-         │              │  Market API      │    │   AI Stack          │
-         │              │  (Port: 8001)    │    │ • DSPy Framework    │
-         │              │  + LLM Matcher   │    │ • Fireworks AI      │
-         │              └──────────────────┘    │ • Perplexity Sonar  │
-         │                        │             └─────────────────────┘
-         │                        ▼
-         │              ┌──────────────────┐
-         └──────────────│ Optimized PGSQL  │
-                        │  3.2K Markets    │
-                        │  Auto-cleanup    │
-                        └──────────────────┘
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   TWITTER BOT   │───>│  WRAPPER API    │───>│   MARKET API    │
+│   (Monitor)     │    │   (Analysis)    │    │   (Database)    │
+│   Port: N/A     │    │   Port: 8003    │    │   Port: 8001    │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+         │                       │                       │
+         ▼                       ▼                       ▼
+    Twitter API            DSPy + Perplexity       PostgreSQL DB
+   (Mentions/Replies)      (AI Analysis)         (Active Markets)
 ```
 
-### Data Pipeline
-```
-Polymarket CLOB API → Hourly Sync → Enhanced Matching → Auto Cleanup (3AM) → 
-Live Search (Fuzzy + Semantic) → AI Selection → Professional Analysis
-```
+**Core Stack:**
+* **AI Models**: Fireworks (Qwen 3.0 235B) + Perplexity Sonar
+* **Framework**: DSPy for structured analysis generation
+* **Database**: PostgreSQL with active market indexing
+* **Response Time**: 30-90 seconds end-to-end
 
-### Rate-Limited Twitter Integration
-```
-Mentions (15min) → Query Extraction → Whitelist Check → AI Analysis → 
-Smart Formatting → Rate-Limited Response → Success Logging
-```
+## Getting Started
 
-## Twitter Bot Features
+### For Users
 
-### Advanced Query Understanding
-- **Natural Language**: "Will Trump win 2024?" → Market search
-- **Price Predictions**: "Bitcoin hitting $200k?" → Price analysis with technical factors  
-- **Geopolitical Events**: "Russia-Ukraine ceasefire?" → Diplomatic analysis
-- **Time Sensitivity**: "before July/2025" → Date-aware filtering
-- **Complex Scenarios**: "US-Iran nuclear deal" → Multi-factor geopolitical analysis
+1. **Follow**: [@VigVinnie](https://x.com/VigVinnie/highlights) on Twitter
+2. **Tweet**: Any market question mentioning @VigVinnie
+3. **Trade**: Get analysis + direct Polymarket access
 
-### Professional AI Analysis
-- **Research**: Real-time news and context via Perplexity Sonar API
-- **Reasoning**: Advanced analysis with R1-1776 reasoning model
-- **Specific Insights**: ETF flows, Fed policy, diplomatic progress, technical levels
-- **Data-Driven**: Mentions concrete percentages, price points, institutional activity
-- **Direct Trading**: Official Polymarket URLs with correct market slugs
+### For Developers
 
-### Smart Response Formatting
-- **Sentence Boundaries**: Never cuts off mid-sentence
-- **URL Protection**: Full Polymarket links always preserved
-- **Character Optimization**: Uses most of 280-character limit effectively
-- **Professional Tone**: No generic "let's tackle this" responses
+Want to understand the technical architecture or deploy your own instance? Explore the documentation sections below:
 
-### Enhanced Access Control
-- **Admin**: @clydedevv - Full access + whitelist management
-- **VIP**: @AnkMister, @0xTraiano - Priority responses, higher limits  
-- **Public Access**: Enabled during testing (whitelist disabled)
-- **Rate Limiting**: 10 requests per day per user, auto-managed
+* [**Quick Start Guide**](gitbook/getting-started/quick-start.md) - Get AIGG running locally
+* [**System Architecture**](gitbook/architecture/system-overview.md) - Infrastructure overview
+* [**Deployment Guide**](gitbook/deployment/deployment-guide.md) - Production setup
+* [**AI Pipeline**](gitbook/ai-pipeline/analysis-pipeline.md) - How insights are generated
 
-### Rate Limiting
-- **Twitter Constraints**: 1 search per 15 minutes (auto-managed)
-- **Bot Intervals**: 15-minute cycles to respect API limits
-- **Auto-Recovery**: Tweepy handles rate limit sleeping
-- **No Quota Waste**: Cached bot info, optimized API calls
+## Resources
 
-## Deployment
+* **Twitter**: [@VigVinnie](https://x.com/VigVinnie/highlights) - Follow for live analysis
+* **GitHub**: [clydedevv/VinnieTheVig](https://github.com/clydedevv/VinnieTheVig) - Source code
+* **Documentation**: Technical guides and API reference in [GitBook](gitbook/)
 
-### Automated Services (tmux)
-```bash
-# Twitter Bot (15-minute intervals)
-tmux new-session -d -s aigg-twitter-bot \
-  'python main.py twitter-bot --interval 900 --disable-whitelist'
-
-# Twitter Wrapper API (Enhanced analysis)
-tmux new-session -d -s twitter-wrapper \
-  'python src/api_wrapper/twitter_wrapper.py'
-
-# Market API (Background)
-tmux new-session -d -s aigg-api \
-  'uvicorn api.main:app --host 0.0.0.0 --port 8001'
-```
-
-### Automated Database Management
-```bash
-# Hourly market data sync (51K+ markets)
-0 * * * * cd /home/cosmos/aigg-insights && source venv/bin/activate && \
-python scripts/populate_polymarket_data_clob.py >> logs/polymarket_cron.log 2>&1
-
-# Daily database cleanup (3 AM) - Removes expired markets
-0 3 * * * cd /home/cosmos/aigg-insights && venv/bin/python \
-scripts/cleanup_inactive_markets.py --execute >> /var/log/aigg-cleanup.log 2>&1
-```
-
-### Environment Configuration
-```bash
-# Database (Optimized PostgreSQL)
-DB_NAME=aigg_insights
-DB_USER=postgres
-DB_PASSWORD=***
-DB_HOST=localhost
-DB_PORT=5432
-
-# Twitter API (Free Tier Optimized)
-TWITTER_BEARER_TOKEN=***
-TWITTER_API_KEY=***
-TWITTER_API_SECRET=***
-TWITTER_ACCESS_TOKEN=***
-TWITTER_ACCESS_TOKEN_SECRET=***
-
-# AI Services
-PERPLEXITY_API_KEY=***
-```
-
-## API Endpoints
-
-### Market Search API
-```bash
-# Health check with full system stats
-curl http://localhost:8001/health
-
-# Enhanced semantic market search
-curl "http://localhost:8001/markets/search?q=russia%20ukraine%20ceasefire&limit=10"
-
-# Get market by slug (for direct links)
-curl "http://localhost:8001/markets/slug/russia-x-ukraine-ceasefire-before-july"
-
-# Category browsing with active filters
-curl "http://localhost:8001/categories?active_only=true"
-```
-
-### Twitter Wrapper API
-```bash
-# System health check
-curl http://localhost:8003/health
-
-# AI analysis endpoint
-curl -X POST http://localhost:8003/analyze \
-  -H "Content-Type: application/json" \
-  -d '{
-    "query": "Russia Ukraine ceasefire before July", 
-    "user_id": "195487174", 
-    "user_handle": "clydedevv", 
-    "tweet_id": "1929334982528369084"
-  }'
-
-# Test endpoint for validation
-curl http://localhost:8003/test
-```
-
-## Examples
-
-### Geopolitical Analysis
-```
-Tweet: "@aigginsights Will there be a Russia-Ukraine ceasefire before July?"
-
-Response:
-Q: Russia-Ukraine ceasefire before July?
-Analysis: Diplomatic push by UK/France coalition faces Ukraine's withdrawal 
-demands vs Russia's territorial claims, limited progress expected
-Recommendation: SELL - negative outlook (60%)
-https://polymarket.com/event/russia-x-ukraine-ceasefire-before-july
-```
-
-### Crypto Technical Analysis
-```
-Tweet: "@aigginsights Bitcoin reaching $200k this year?"
-
-Response:
-Q: Bitcoin reaching $200k this year?
-Analysis: ETF inflows up 40%, Fed rate cuts boost risk appetite, but $45k 
-resistance remains key level for sustained breakout
-Recommendation: BUY - technical breakout (72%)
-https://polymarket.com/event/will-bitcoin-reach-200000-by-december-31-2025
-```
-
-### Political Analysis
-```
-Tweet: "@aigginsights US-Iran nuclear deal in 2025?"
-
-Response:
-Q: US-Iran nuclear deal in 2025?
-Analysis: Ongoing talks show progress but uranium enrichment limits and 
-domestic opposition create significant barriers
-Recommendation: HOLD - situation uncertain (65%)
-https://polymarket.com/event/us-x-iran-nuclear-deal-in-2025
-```
-
-## Database Optimization
-
-### Cleanup Results
-- **Before**: 51,093 total markets
-- **Removed**: 42,938 expired markets + 4,987 inactive
-- **After**: 3,168 active markets (94% reduction)
-- **Performance**: 10x faster search queries
-- **Automation**: Daily cleanup at 3 AM
-
-### Enhanced Market Matching
-- **Fuzzy Search**: Handles typos and variations
-- **Semantic Matching**: Understands context and meaning
-- **AI Selection**: Perplexity picks best from top 10 candidates
-- **Official Slugs**: Direct Polymarket URLs always work
-- **Real-time**: Live search under 1 second
-
-## Security & Privacy
-
-### Data Protection
-- **Minimal Storage**: Only Twitter IDs for rate limiting
-- **Auto-Purge**: Logs cleaned automatically
-- **No Tweet Storage**: Real-time processing only
-- **GDPR Compliant**: Full privacy by design
-- **API Security**: No user data in AI requests
-
-### Access Control
-- **Flexible Whitelist**: Can be enabled/disabled for testing
-- **Smart Rate Limiting**: User-based + Twitter API constraints
-- **Usage Analytics**: Request tracking and daily quotas
-- **Auto-Blocking**: Prevents abuse and spam
-
-## System Administration
-
-### Monitoring
-```bash
-# Twitter bot status and logs
-tmux attach -t aigg-twitter-bot
-tail -f logs/aigg_twitter_bot.log
-
-# Wrapper API health and performance
-tmux attach -t twitter-wrapper
-curl http://localhost:8003/health
-
-# Database sync status
-tail -f logs/polymarket_cron.log
-
-# System resource monitoring
-tmux list-sessions
-ps aux | grep python
-```
-
-### Whitelist Management
-```bash
-# Current production whitelist
-Admin: clydedevv (195487174)
-VIPs: AnkMister (2163943230), 0xTraiano (1420819293894287364)
-
-# Management commands
-python scripts/manage_whitelist.py add username 1234567890 vip
-python scripts/manage_whitelist.py stats
-python scripts/manage_whitelist.py remove 1234567890
-```
-
-### Deployment Commands
-```bash
-# Full system restart
-tmux kill-session -t aigg-twitter-bot
-tmux kill-session -t twitter-wrapper
-tmux new-session -d -s aigg-twitter-bot 'python main.py twitter-bot --interval 900'
-tmux new-session -d -s twitter-wrapper 'python src/api_wrapper/twitter_wrapper.py'
-
-# Database maintenance
-python scripts/cleanup_inactive_markets.py --execute
-python scripts/populate_polymarket_data_clob.py
-
-# Health checks
-curl http://37.27.54.184:8001/health
-curl http://localhost:8003/health
-```
-
-## Performance Metrics
-
-### Response Times
-- **Market Search**: < 1 second (94% faster after cleanup)
-- **AI Research**: ~10-15 seconds (Perplexity API)
-- **Analysis Generation**: ~5-10 seconds (R1-1776)
-- **Twitter Formatting**: < 1 second
-- **Total Response**: ~13-25 seconds
-
-### Accuracy
-- **Market Matching**: 98%+ relevance (enhanced algorithm)
-- **Query Understanding**: 95%+ success rate
-- **Direct Links**: 100% working Polymarket URLs
-- **Analysis Quality**: Specific data points, no generic responses
-- **AI Quality**: Professional insights with concrete factors
-
-### System Reliability
-- **API Uptime**: 99.9%
-- **Auto-Recovery**: Twitter rate limits handled automatically
-- **Database Health**: Auto-cleanup prevents degradation
-- **Error Handling**: Comprehensive logging and fallbacks
-
-## Development & Testing
-
-### Local Development
-```bash
-# Enhanced setup
-git clone https://github.com/your-repo/aigg-insights
-cd aigg-insights
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-
-# Environment configuration
-cp .env.example .env
-# Add your Perplexity and Twitter API keys
-
-# Test components individually
-python main.py analyze "Bitcoin 200k prediction"
-python main.py test-api
-python main.py status
-```
-
-### Testing
-```bash
-# External client for developers
-python external_client.py analyze "Russia Ukraine ceasefire"
-python external_client.py test-api
-python external_client.py market-search "bitcoin 200k"
-
-# Full system validation
-curl -X POST http://localhost:8003/analyze \
-  -H "Content-Type: application/json" \
-  -d '{"query": "test query", "user_id": "test", "tweet_id": "123"}'
-```
-
-### Main Interface Commands
-```bash
-# Primary entry points
-python main.py twitter-bot --interval 900 --disable-whitelist
-python main.py analyze "Will Bitcoin hit 200k in 2025?"
-python main.py status
-python main.py test-api
-```
-
-## Contact & Support
-
-- **Live Bot**: [@aigginsights](https://twitter.com/aigginsights) 
-- **Admin**: [@clydedevv](https://twitter.com/clydedevv)
-- **Issues**: Create GitHub issue or Twitter DM
-
-## Legal & Compliance
-
-- **Terms of Service**: Beta testing with controlled access
-- **Privacy Policy**: No personal data storage beyond rate limiting
-- **API Limits**: Twitter Free tier constraints (15-minute intervals)
-- **Status**: Live and stable
+Built with the emergent prediction markets community in mind.
 
 ---
 
-## Key Achievements
-
-- **Twitter Bot**: Live with professional analysis (no more generic responses)  
-- **Database**: Optimized to 3.2K markets (94% reduction)  
-- **AI Pipeline**: R1-1776 reasoning with specific insights  
-- **Rate Limiting**: Fully automated Twitter API management  
-- **Market Matching**: Enhanced algorithm with 98%+ accuracy  
-- **Smart Formatting**: Sentence-boundary aware truncation  
-- **Direct Links**: Official Polymarket URLs with correct slugs  
-- **Auto-Cleanup**: Daily database maintenance  
-- **Analysis Quality**: ETF flows, diplomatic analysis, technical levels  
-
----
-
-*Built for intelligent prediction market analysis*
+For detailed technical documentation, deployment guides, and API references, see the [GitBook documentation](gitbook/).

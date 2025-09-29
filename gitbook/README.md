@@ -131,17 +131,11 @@ The flow combines three core technologies:
 
 Want to understand the technical architecture or deploy your own instance? Explore the documentation sections below:
 
-* [**What is AIGG?**](getting-started/what-is-aigg.md) - Technical deep dive
+* [**Quick Start Guide**](getting-started/quick-start.md) - Get AIGG running locally
 * [**System Architecture**](architecture/system-overview.md) - Infrastructure overview
 * [**Deployment Guide**](deployment/deployment-guide.md) - Production setup
 * [**AI Pipeline**](ai-pipeline/analysis-pipeline.md) - How insights are generated
 
-## Why VigVinnie Works
-
-* **Real-Time Intelligence**: Each response includes up-to-the-minute market context
-* **Authentic Voice**: Brooklyn bookmaker personality cuts through generic bot noise  
-* **Action-Oriented**: Clear BUY/SELL/HOLD recommendations with confidence scores
-* **Direct Access**: Immediate links to actual tradeable Polymarket events
 
 ## Resources
 
@@ -149,4 +143,3 @@ Want to understand the technical architecture or deploy your own instance? Explo
 * **GitHub**: [clydedevv/VinnieTheVig](https://github.com/clydedevv/VinnieTheVig) - Source code
 * **Documentation**: Technical guides and API reference below
 
-Built with the emergent prediction markets community in mind.

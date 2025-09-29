@@ -4,14 +4,11 @@ Complete guide to setting up your development environment for AIGG Insights.
 
 ## System Requirements
 
-### Minimum Requirements
+### Basic Requirements
 
-* **OS**: Ubuntu 20.04+, macOS 12+, or Windows 10+ (WSL2)
 * **Python**: 3.11 or higher
 * **PostgreSQL**: 14.0 or higher
-* **RAM**: 8GB minimum, 16GB recommended
 * **Storage**: 10GB free space
-* **CPU**: 4 cores recommended
 
 ### Network Requirements
 
@@ -150,11 +147,11 @@ OPENAI_MODEL=gpt-4o-mini
 
 # Fireworks AI (primary LLM)
 FIREWORKS_API_KEY=fw_...
-FIREWORKS_MODEL=accounts/fireworks/models/qwen2p5-72b-instruct
+FIREWORKS_MODEL=accounts/fireworks/models/qwen3-235b-a22b-instruct-2507
 
 # Perplexity (for research)
 PERPLEXITY_API_KEY=pplx-...
-PERPLEXITY_MODEL=llama-3.1-sonar-large-128k-online
+PERPLEXITY_MODEL=sonar
 
 # Twitter API (optional)
 TWITTER_API_KEY=...

@@ -26,7 +26,7 @@ Primary LLM provider for market matching and analysis.
 ```bash
 # .env file
 FIREWORKS_API_KEY=fw_your_key_here
-FIREWORKS_MODEL=accounts/fireworks/models/qwen2p5-72b-instruct
+FIREWORKS_MODEL=accounts/fireworks/models/qwen3-235b-a22b-instruct-2507
 FIREWORKS_MAX_TOKENS=4096
 FIREWORKS_TEMPERATURE=0.7
 ```
@@ -52,7 +52,7 @@ Used for real-time web research and current information.
 ```bash
 # .env file
 PERPLEXITY_API_KEY=pplx_your_key_here
-PERPLEXITY_MODEL=llama-3.1-sonar-large-128k-online
+PERPLEXITY_MODEL=sonar
 PERPLEXITY_MAX_TOKENS=2048
 ```
 
@@ -209,14 +209,14 @@ DB_POOL_RECYCLE=3600
 
 # Fireworks AI (Primary)
 FIREWORKS_API_KEY=fw_...
-FIREWORKS_MODEL=accounts/fireworks/models/qwen2p5-72b-instruct
+FIREWORKS_MODEL=accounts/fireworks/models/qwen3-235b-a22b-instruct-2507
 FIREWORKS_MAX_TOKENS=4096
 FIREWORKS_TEMPERATURE=0.7
 FIREWORKS_TIMEOUT=30
 
 # Perplexity (Research)
 PERPLEXITY_API_KEY=pplx_...
-PERPLEXITY_MODEL=llama-3.1-sonar-large-128k-online
+PERPLEXITY_MODEL=sonar
 PERPLEXITY_MAX_TOKENS=2048
 PERPLEXITY_TIMEOUT=30
 
@@ -360,7 +360,7 @@ def test_perplexity():
         "https://api.perplexity.ai/chat/completions",
         headers={"Authorization": f"Bearer {key}"},
         json={
-            "model": "llama-3.1-sonar-small-128k-online",
+            "model": "sonar",
             "messages": [{"role": "user", "content": "test"}],
             "max_tokens": 1
         }

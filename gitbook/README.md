@@ -1,14 +1,56 @@
-# Overview
+# AIGG - A Polymarket Companion
 
-AIGG powers intelligent prediction market analysis through **@VigVinnie**, a Brooklyn bookmaker character who brings technical analysis to life on Twitter.
+AIGG is a Twitter-native companion for Polymarket that transforms market discovery from a research rabbit hole into a 30-second decision. Mention @VigVinnie with any market question and receive an actionable trading recommendation with the exact Polymarket link.
 
-> [Visit @VigVinnie on Twitter](https://x.com/VigVinnie)
+> [Visit @VigVinnie on Twitter](https://x.com/VigVinnie/highlights)
 
-## What is VigVinnie?
+## The Problem We're Tackling
+
+Prediction markets are exploding in popularity, but the user experience remains fragmented:
+
+* **Discovery is noisy**: 114,450+ markets across different categories
+* **Naming is inconsistent**: Same events titled differently  
+* **Timing matters**: Markets move fast, research takes time
+* **Generic bots fail**: Vague responses that don't help trading decisions
+
+Most traders either can't find the right market quickly or don't have time to research it properly. This friction prevents confident participation and creates missed opportunities.
+
+## The Solution
+
+AIGG eliminates this friction with three key innovations:
+
+### 1. Custom, Clean Market Index
+
+We maintain an "active only" index that dramatically improves search performance:
+
+* **Before**: 114,450 total markets (many expired, duplicates, low volume)
+* **After**: 6,991 active markets (94% reduction)
+* **Result**: 10× faster search, more relevant results
+* **Updates**: Daily cleanup at 03:00 UTC
+
+### 2. AI Matcher That Understands Real Questions
+
+Our matching engine combines multiple techniques for accuracy:
+
+* **Fuzzy Matching**: Handles typos, abbreviations, variations
+* **Semantic Matching**: Understands meaning and context  
+* **Entity Recognition**: Identifies people, dates, events
+* **Relevance Ranking**: Prioritizes by volume, recency, status
+
+### 3. Structured Analysis with Real-Time Research
+
+The key innovation is our DSPy flow that combines market odds with up-to-the-minute news research:
+
+* **Market Data**: Current odds, volume, and activity
+* **Perplexity Search**: Latest news and context for time-sensitive events  
+* **Structured Generation**: Consistent analysis format with confidence scores
+* **Multi-Level Research**: Basic context vs deep research for breaking news
+
+## Who is VigVinnie?
 
 <figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-**@VigVinnie** combines AIGG's technical capabilities with an authentic Brooklyn bookmaker personality. Users mention @VigVinnie with market questions and get actionable trading insights in seconds.
+**@VigVinnie** is the Brooklyn bookmaker character who brings AIGG's technical analysis to life on Twitter.
 
 ### The Character
 
@@ -17,12 +59,19 @@ AIGG powers intelligent prediction market analysis through **@VigVinnie**, a Bro
 * **Style**: Direct, opinionated analysis with confidence percentages
 * **Avatar**: Pepe profile picture that's become iconic in prediction markets
 
-### How It Works
+### The VigVinnie Experience
 
 1. **Ask**: Tweet any market question to @VigVinnie
 2. **Analysis**: Get Brooklyn bookmaker-style analysis with current context
 3. **Action**: Receive clear BUY/SELL/HOLD with confidence score
 4. **Trade**: Direct Polymarket link for immediate action
+
+**What makes VigVinnie special:**
+
+* **Real-Time Intelligence**: Each response includes the very latest news and context
+* **Market Understanding**: Combines technical odds analysis with current events
+* **Authentic Voice**: Brooklyn bookmaker personality that cuts through noise
+* **Threaded Responses**: Analysis tweet followed by clean preview link
 
 ## Example Interaction
 
@@ -42,15 +91,31 @@ AIGG powers intelligent prediction market analysis through **@VigVinnie**, a Bro
 
 This two-tweet pattern delivers both analysis and market access.
 
-## The Problem VigVinnie Solves
+## How The DSPy Flow Works
 
-Prediction markets are exploding, but discovery remains broken:
+The magic happens in our structured analysis pipeline:
 
-* **Discovery is noisy**: 10,000+ markets with inconsistent naming
-* **Research takes time**: Markets move fast, analysis is slow
-* **Generic bots fail**: Vague responses that don't help trading decisions
+### Step 1: Smart Market Matching
+* Parse natural language queries ("Fed cutting rates?")
+* Search 6,991 active markets semantically
+* Rank by relevance, volume, and recency
 
-VigVinnie cuts through the noise with personality-driven, actionable insights.
+### Step 2: Real-Time Research Engine  
+* Detect time-sensitive topics automatically
+* Query Perplexity Sonar for breaking news
+* Gather market context and sentiment
+
+### Step 3: Structured Analysis Generation
+* Combine market data with fresh research
+* Generate Brooklyn bookmaker-style analysis
+* Include confidence scores and clear recommendations
+
+### Step 4: Multi-Level Research Depth
+* **Basic**: Market odds + recent context
+* **Enhanced**: Breaking news + sentiment analysis  
+* **Deep**: Full research for major events
+
+This structured approach ensures every response is both timely and actionable.
 
 ## Technical Foundation
 
@@ -86,7 +151,7 @@ VigVinnie is powered by AIGG's technical stack:
 
 ### For Users
 
-1. **Follow**: [@VigVinnie](https://x.com/VigVinnie) on Twitter
+1. **Follow**: [@VigVinnie](https://x.com/VigVinnie/highlights) on Twitter
 2. **Tweet**: Any market question mentioning @VigVinnie
 3. **Trade**: Get analysis + direct Polymarket access
 
@@ -110,7 +175,7 @@ Traditional prediction market bots produce generic, unhelpful responses. VigVinn
 
 ## Resources
 
-* **Twitter**: [@VigVinnie](https://x.com/VigVinnie) - Follow for live analysis
+* **Twitter**: [@VigVinnie](https://x.com/VigVinnie/highlights) - Follow for live analysis
 * **GitHub**: [clydedevv/VinnieTheVig](https://github.com/clydedevv/VinnieTheVig) - Source code
 * **Documentation**: Technical guides and API reference below
 

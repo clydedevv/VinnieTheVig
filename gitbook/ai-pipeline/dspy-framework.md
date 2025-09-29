@@ -109,7 +109,7 @@ class DSPyEnhancedAIGGFlow(FunctionalModule):
         # Configure DSPy environment
         self.lm = configure_dspy_environment(
             api_provider="fireworks",
-            model="accounts/fireworks/models/qwen2p5-72b-instruct",
+            model="accounts/fireworks/models/qwen3-235b-a22b-instruct-2507",
             temperature=0.7
         )
 
@@ -361,7 +361,7 @@ with dspy.context(trace=True):
 # Fast, cheap testing
 configure_dspy_environment(
     api_provider="groq",
-    model="llama-3.1-8b-instant",
+    model="alternative-model",
     temperature=0.3,
     max_tokens=256
 )
@@ -372,7 +372,7 @@ configure_dspy_environment(
 # High quality, consistent
 configure_dspy_environment(
     api_provider="fireworks",
-    model="qwen2p5-72b-instruct",
+    model="qwen3-235b-a22b-instruct-2507",
     temperature=0.7,
     max_tokens=512,
     top_p=0.9

@@ -120,7 +120,7 @@ Give me something specific.
 
 ```mermaid
 gantt
-    title Response Timeline (13 seconds total)
+    title Typical Response Flow (seconds vary by API latency)
     dateFormat X
     axisFormat %s
 
@@ -138,14 +138,14 @@ gantt
     Post Thread      :post, 42, 1
 ```
 
-| Stage           | Duration  | Component           |
-| --------------- | --------- | ------------------- |
-| Query Detection | 30s       | Twitter API polling |
-| Market Matching | 2s        | LLM semantic search |
-| Research        | 5s        | Perplexity API      |
-| Analysis        | 3s        | DSPy pipeline       |
-| Response        | 1s        | Tweet posting       |
-| **Total**       | **\~13s** | End-to-end          |
+| Stage           | Typical Duration | Component           |
+| --------------- | --------------- | ------------------- |
+| Query Detection | 30s             | Twitter API polling |
+| Market Matching | 2s              | LLM semantic search |
+| Research        | 5s              | Perplexity API      |
+| Analysis        | 3s              | DSPy pipeline       |
+| Response        | 1s              | Tweet posting       |
+| **Total**       | **~41s**        | End-to-end          |
 
 ## Testing Queries
 
@@ -183,4 +183,4 @@ curl "http://localhost:8001/markets/search?q=bitcoin&limit=5"
 
 ## Tweet Embeds
 
->
+> **Disclaimer:** This is not investment advice. Prediction markets are volatile and markets/odds change frequently. Examples are illustrative; links may resolve or become unavailable.

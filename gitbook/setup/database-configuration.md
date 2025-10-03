@@ -45,7 +45,7 @@ python main.py database load-markets --full
 ```
 
 Options:
-- `--full`: Load all 51K+ markets
+- `--full`: Load all available markets
 - `--active`: Load only active markets (~3K)
 - `--category [name]`: Load specific category
 

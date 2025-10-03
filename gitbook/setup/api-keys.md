@@ -26,14 +26,13 @@ Primary LLM provider for market matching and analysis.
 ```bash
 # .env file
 FIREWORKS_API_KEY=fw_your_key_here
-FIREWORKS_MODEL=accounts/fireworks/models/qwen3-235b-a22b-instruct-2507
+FIREWORKS_MODEL=fireworks/qwen3-235b-a22b
 FIREWORKS_MAX_TOKENS=4096
 FIREWORKS_TEMPERATURE=0.7
 ```
 
 ### Pricing
-- **Qwen 2.5 72B**: $0.40 per million tokens
-- **Average cost**: ~$0.002 per analysis
+- See [Fireworks AI pricing](https://fireworks.ai/pricing) for current rates
 - **Free tier**: $1 credit on signup
 
 ## 2. Perplexity AI (Essential)
@@ -57,8 +56,7 @@ PERPLEXITY_MAX_TOKENS=2048
 ```
 
 ### Pricing
-- **Sonar Large**: $1.00 per million tokens
-- **Sonar Small**: $0.20 per million tokens
+- See [Perplexity pricing](https://docs.perplexity.ai/getting-started/pricing) for current rates
 - **Free tier**: $5 credit monthly
 
 ## 3. OpenAI (Recommended)
@@ -103,9 +101,7 @@ Required only for Twitter bot functionality.
 4. Generate keys and tokens
 
 ### Access Levels
-- **Free**: Read-only, 10K tweets/month
-- **Basic**: $100/month, 100K tweets
-- **Pro**: $5000/month, 1M tweets
+- See [X's developer docs](https://developer.twitter.com/en/products/twitter-api) for current tiers and pricing
 
 ### Configuration
 
@@ -209,7 +205,7 @@ DB_POOL_RECYCLE=3600
 
 # Fireworks AI (Primary)
 FIREWORKS_API_KEY=fw_...
-FIREWORKS_MODEL=accounts/fireworks/models/qwen3-235b-a22b-instruct-2507
+FIREWORKS_MODEL=fireworks/qwen3-235b-a22b
 FIREWORKS_MAX_TOKENS=4096
 FIREWORKS_TEMPERATURE=0.7
 FIREWORKS_TIMEOUT=30

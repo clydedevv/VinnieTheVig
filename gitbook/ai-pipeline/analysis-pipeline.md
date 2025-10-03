@@ -45,7 +45,7 @@ The system uses LLM-based category matching to find relevant markets:
    - Returns top 100 candidates
 
 3. **LLM Ranking**
-   - Qwen 3.0 235B model ranks candidates by relevance
+   - Qwen3 model ranks candidates by relevance
    - Considers query intent and market specificity
    - Returns best matching market
 
@@ -79,7 +79,7 @@ class ResearchEngine:
         ])
 
     def gather_context(self, market):
-        # Use Perplexity Sonar for current information
+        # Use Perplexity Sonar/Sonar Pro for current information
         return perplexity.search(
             query=market.title,
             recency="day",
@@ -170,7 +170,7 @@ class VinnieFormatter:
 ```python
 def analyze_with_fallback(query):
     try:
-        # Primary: Fireworks AI with Qwen 3.0 235B
+        # Primary: Fireworks AI with Qwen3-235B-A22B
         return primary_analysis(query)
     except:
         try:
@@ -189,12 +189,12 @@ def analyze_with_fallback(query):
 
 ### Primary Models
 
-**Fireworks AI - Qwen 3.0 235B**
+**Fireworks AI - Qwen3-235B-A22B**
 - Purpose: Market matching and analysis
 - Speed: 2-3 seconds per request
-- Cost: $0.40/million tokens
+- Cost: See [Fireworks AI pricing](https://fireworks.ai/pricing) for current rates
 
-**Perplexity Sonar**
+**Perplexity Sonar/Sonar Pro**
 - Purpose: Real-time research
 - Speed: 3-5 seconds per request
 - Features: Web search with citations

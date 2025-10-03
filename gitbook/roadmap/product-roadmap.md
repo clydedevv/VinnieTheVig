@@ -5,8 +5,8 @@
 ### Core Infrastructure
 
 **Database**
-- 115,000+ Polymarket markets indexed
-- ~6,800 actively traded markets
+- Hundreds of thousands of Polymarket markets indexed
+- Thousands of actively traded markets
 - Real-time synchronization with Polymarket API
 - PostgreSQL with optimized indexes
 
@@ -25,7 +25,7 @@
 ### Current Performance
 
 - Response Time: 30-90 seconds end-to-end
-- Market Coverage: 115,000+ total markets
+- Market Coverage: Hundreds of thousands of total markets
 - Query Performance: Sub-second database lookups
 - System Uptime: Continuous via tmux sessions
 
@@ -271,7 +271,7 @@ class AutonomousMarketMaker:
    - Independent scaling per component
    - Container orchestration with Kubernetes
 
-2. **Real-time Capabilities**
+2. **Real-time Capabilities (Planned)**
    - WebSocket connections for live updates
    - Event streaming for market changes
    - Push notifications for alerts
@@ -285,8 +285,8 @@ class AutonomousMarketMaker:
 
 ### Current Baseline
 - Response Time: 30-90 seconds
-- Market Coverage: 115,000+ markets
-- Active Markets: ~6,800
+- Market Coverage: Hundreds of thousands of markets
+- Active Markets: Thousands
 - System Availability: Continuous operation
 
 ### 2025 Q2 Targets
@@ -359,6 +359,6 @@ The AIGG system will evolve from a Twitter bot to a comprehensive prediction mar
 
 2. **Mid-term**: Premium analytics platform with embedded Polymarket markets, expert insights, and gated features for monetization
 
-3. **Long-term**: Multi-platform support, enterprise solutions, and API marketplace to establish market leadership
+3. **Long-term (Planned)**: Multi-platform support, enterprise solutions, and API marketplace to establish market leadership
 
-With 115,000+ markets indexed and proven AI capabilities, AIGG is positioned to become the primary intelligence layer for prediction markets, bridging the gap between raw market data and actionable trading insights.
+With hundreds of thousands of markets indexed and proven AI capabilities, AIGG is positioned to become the primary intelligence layer for prediction markets, bridging the gap between raw market data and actionable trading insights.

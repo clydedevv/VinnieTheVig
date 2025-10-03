@@ -174,11 +174,7 @@ a no-go. Lay your action on NO and walk away clean."
 
 ### Twitter API Limits
 
-| Tier | Read Limit | Write Limit | Cost |
-|------|------------|-------------|------|
-| Free | 10K/month | 1.5K/month | $0 |
-| Basic | 100K/month | 10K/month | $100 |
-| Pro | 1M/month | 300K/month | $5000 |
+Limits and pricing depend on your X tier; see [X's developer docs](https://developer.twitter.com/en/products/twitter-api) for current rates and limits.
 
 ### Implementation Strategy
 
@@ -260,10 +256,10 @@ again. Sometimes the action gets too hot."
 
 ### Success Rates
 
-- **Mention Detection**: 99.9%
-- **Market Match**: 95.2%
-- **Analysis Success**: 98.5%
-- **Tweet Delivery**: 99.7%
+- **Mention Detection**: High reliability
+- **Market Match**: Designed for high relevance; actual results vary
+- **Analysis Success**: High reliability with DSPy structured outputs
+- **Tweet Delivery**: High reliability
 
 ## Monitoring & Logging
 
@@ -445,3 +441,7 @@ def test_full_flow():
 3. **Proactive alerts**: Notify users of market movements
 4. **Thread summaries**: Aggregate multiple related queries
 5. **DM support**: Private analysis for premium users
+
+---
+
+> **Disclaimer:** This is not investment advice. Prediction markets are volatile and markets/odds change frequently. Examples are illustrative; links may resolve or become unavailable.

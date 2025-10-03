@@ -171,9 +171,9 @@ Response:
 }
 ```
 
-## WebSocket Support
+## WebSocket Support (Planned)
 
-Real-time market updates via WebSocket.
+Real-time market updates via WebSocket. *This feature is planned for future implementation.*
 
 ```javascript
 const ws = new WebSocket('ws://localhost:8001/ws');

@@ -1,10 +1,10 @@
 # Database Design
 
-AIGG Insights uses PostgreSQL as its primary data store with live synchronization to Polymarket's complete market dataset, currently tracking 115,000+ markets with ~6,800 actively traded markets updated in real-time.
+AIGG Insights uses PostgreSQL as its primary data store with live synchronization to Polymarket's complete market dataset, currently tracking hundreds of thousands of markets with thousands of actively traded markets updated in real-time.
 
 ## Database Schema Overview
 
-The production database maintains real-time synchronization with Polymarket's complete market data, providing instant access to 115,000+ prediction markets for analysis.
+The production database maintains real-time synchronization with Polymarket's complete market data, providing instant access to hundreds of thousands of prediction markets for analysis.
 
 ```mermaid
 erDiagram
@@ -239,7 +239,7 @@ async def update_market_data():
     """Runs every 5 minutes in production"""
     # Fetches from live Polymarket API
     active_markets = await polymarket_api.fetch_active_markets()
-    # 115,000+ total markets synchronized
+    # Hundreds of thousands of total markets synchronized
 
     for market in active_markets:
         await upsert_market(market)
@@ -268,7 +268,7 @@ WHERE expires_at < NOW();
 
 ### 3. Active Market Management
 
-Maintains ~6,800 active markets from 115,000+ total synchronized markets:
+Maintains thousands of active markets from hundreds of thousands of total synchronized markets:
 
 ```python
 def maintain_active_markets():

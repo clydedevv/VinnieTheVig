@@ -13,7 +13,7 @@ The AIGG system runs as three independent microservices communicating via HTTP A
          │                       │                       │
          ▼                       ▼                       ▼
     Twitter API            DSPy + Perplexity       PostgreSQL DB
-   (Mentions/Replies)      (AI Analysis)         (115,000+ markets)
+   (Mentions/Replies)      (AI Analysis)         (Active Markets)
 ```
 
 ## Core Components
@@ -28,7 +28,7 @@ The AIGG system runs as three independent microservices communicating via HTTP A
 ### 2. Market API Server (Port 8001)
 - Purpose: Database access and market search
 - Technology: FastAPI with async handlers
-- Database: PostgreSQL with 115,000+ markets (~6,800 active)
+- Database: PostgreSQL with hundreds of thousands of markets historically; thousands active at any given time
 - Features: LLM-based semantic search using category matching
 - Performance: Sub-second market matching from live database
 - Process: `python main.py api-server --port 8001`
@@ -41,13 +41,13 @@ The AIGG system runs as three independent microservices communicating via HTTP A
 
 ### 4. DSPy Analysis Pipeline
 - Purpose: Generate trading recommendations
-- Technology: DSPy framework with Fireworks AI (Qwen 3.0 235B)
-- Research: Perplexity Sonar for real-time news
+- Technology: DSPy framework with Fireworks AI (Qwen3-235B-A22B)
+- Research: Perplexity Sonar/Sonar Pro for real-time news
 - Output: Structured analysis with BUY/SELL/HOLD recommendations
 
 ### 5. PostgreSQL Database
 - Purpose: Market data storage and analysis persistence
-- Scale: 115,000+ total markets, ~6,800 actively traded
+- Scale: Hundreds of thousands of markets historically; thousands active at any given time
 - Tables: polymarket_markets, research, analysis, conclusions
 - Maintenance: Automatic cleanup of inactive markets
 - Updates: Real-time synchronization with Polymarket
@@ -103,7 +103,7 @@ The AIGG system runs as three independent microservices communicating via HTTP A
 - Response Time: 30-90 seconds (includes research and analysis)
 - Polling Interval: 30 seconds for mention checks
 - Rate Limiting: 1 request per minute per user
-- Market Coverage: 115,000+ total markets, ~6,800 active
+- Market Coverage: Hundreds of thousands of markets historically; thousands active at any given time
 - Analysis Accuracy: High confidence with DSPy structured outputs
 - Uptime: Continuous operation via tmux sessions
 
@@ -111,15 +111,15 @@ The AIGG system runs as three independent microservices communicating via HTTP A
 
 - Twitter API v2: Mention polling and reply posting
 - Polymarket API: Market data synchronization
-- Fireworks AI: LLM inference (Qwen 3.0 235B)
-- Perplexity API: Real-time news research
+- Fireworks AI: LLM inference (Qwen3-235B-A22B)
+- Perplexity API: Real-time news research (Sonar/Sonar Pro)
 - PostgreSQL: Data persistence
 
 ## Scaling Considerations
 
 ### Current Capacity
 - Mentions: 1,000+ per day capacity
-- Markets: 115,000+ total (~6,800 active)
+- Markets: Hundreds of thousands of markets historically; thousands active at any given time
 - Response Time: 30-90 seconds end-to-end
 - Concurrent Requests: 10-20
 
@@ -160,8 +160,8 @@ aigg-insights/
 
 ### AI Framework
 - DSPy: Structured prompting and consistent outputs
-- Fireworks AI: Fast inference with Qwen 3.0 235B
-- Perplexity Sonar: Real-time news and research
+- Fireworks AI: Fast inference with Qwen3-235B-A22B
+- Perplexity Sonar/Sonar Pro: Real-time news and research
 
 ### Infrastructure
 - PostgreSQL: Market data storage

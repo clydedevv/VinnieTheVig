@@ -84,6 +84,8 @@ The key innovation is our DSPy flow that combines market odds with up-to-the-min
 
 This demonstrates VigVinnie's signature style: market analysis in authentic bookmaker voice, followed by the direct Polymarket link.
 
+> **Disclaimer:** This is not investment advice. Prediction markets are volatile and markets/odds change frequently. Examples are illustrative; links may resolve or become unavailable.
+
 ## How The Technology Works
 
 AIGG has the technical foundation to index active markets, semantically match incoming queries, and run a Perplexity DSPy-powered backend search to compile the best sources and research.
@@ -115,10 +117,10 @@ The flow combines three core technologies:
 ```
 
 **Core Stack:**
-* **AI Models**: Fireworks (Qwen 3.0 235B) + Perplexity Sonar
+* **AI Models**: Fireworks (Qwen3-235B-A22B) + Perplexity Sonar/Sonar Pro
 * **Framework**: DSPy for structured analysis generation
 * **Database**: PostgreSQL with active market indexing
-* **Response Time**: 30-90 seconds end-to-end
+* **Response Time**: Typically 30-90 seconds end-to-end
 
 ## Getting Started
 
@@ -143,4 +145,6 @@ Want to understand the technical architecture or deploy your own instance? Explo
 * **Twitter**: [@VigVinnie](https://x.com/VigVinnie/highlights) - Follow for live analysis
 * **GitHub**: [clydedevv/VinnieTheVig](https://github.com/clydedevv/VinnieTheVig) - Source code
 * **Documentation**: Technical guides and API reference below
+
+---
 

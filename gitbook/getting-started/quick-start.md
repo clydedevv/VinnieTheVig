@@ -71,14 +71,7 @@ Run a simple market analysis to verify everything works:
 python main.py analyze "Will Bitcoin reach 200k in 2025?"
 ```
 
-Expected output:
-
-```
-Finding relevant markets...
-Analyzing: BTC Above $200,000 by Dec 31, 2025
-Current probability: 8.5%
-Recommendation: Strong Buy (High upside potential)
-```
+Expected output will include a matched market, current snapshot of odds, and a BUY/SELL/HOLD suggestion.
 
 ## 6. Start the API Server
 

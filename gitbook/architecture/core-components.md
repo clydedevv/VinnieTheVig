@@ -30,7 +30,7 @@ FastAPI service providing database access and market search capabilities.
 ### Implementation
 - Location: `api/main.py`
 - Process: `python main.py api-server --port 8001`
-- Database: PostgreSQL with 115,000+ markets
+- Database: PostgreSQL with hundreds of thousands of markets
 
 ### Endpoints
 - `GET /health`: System health check
@@ -81,14 +81,14 @@ Semantic search engine for finding relevant markets from the database.
 ### Implementation
 - Location: `src/flows/llm_market_matcher_v2.py`
 - Performance: 1-3 seconds for semantic search
-- Coverage: 115,000+ markets indexed
+- Coverage: Hundreds of thousands of markets indexed
 
 ## 6. Database Layer
 
 PostgreSQL database managing market data and analysis results.
 
 ### Key Tables
-- `polymarket_markets`: 115,000+ market records (~6,800 active)
+- `polymarket_markets`: Hundreds of thousands of market records (thousands active)
 - `research`: Market research cache
 - `analysis`: AI-generated insights
 - `conclusions`: Trading recommendations
@@ -156,6 +156,6 @@ PostgreSQL database managing market data and analysis results.
 
 ### Key Metrics
 - Response times: 30-90 seconds end-to-end
-- Market coverage: 115,000+ total, ~6,800 active
+- Market coverage: Hundreds of thousands total, thousands active
 - Rate limits: 1 request/minute per user
 - Uptime: Continuous via tmux persistence

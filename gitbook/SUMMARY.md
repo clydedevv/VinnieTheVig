@@ -36,10 +36,6 @@
 
 * [Market API](apis/market-api.md)
 
-## Roadmap
-
-* [Product Roadmap](roadmap/product-roadmap.md)
-
 ## Help
 
 * [FAQ](help/faq.md)
